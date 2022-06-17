@@ -31,15 +31,15 @@ export class CreateBneaComponent implements OnInit {
   public beneficit: any[] = [];
   public team: any[] = [];
 
-  constructor(private _formBuilder: FormBuilder, public router: Router) {}
+  constructor(private _formBuilder: FormBuilder, public router: Router) { }
 
   ngOnInit(): void {
     this.beneficit = [
       {
-        beneficio1: "",
-        cantidad1: 0,
-        beneficio2: "",
-        cantidad2: 0,
+        recurso: Number,
+        cantidad: Number,
+        duracion: Number,
+        sueldo: Number,
       },
     ];
     this.firstFormGroup = this._formBuilder.group({
@@ -78,14 +78,17 @@ export class CreateBneaComponent implements OnInit {
   }
   addBenefit() {
     this.beneficit.push({
-      beneficio1: "",
-      cantidad1: 0,
-      beneficio2: "",
-      cantidad2: 0,
+      recurso: Number,
+      cantidad: Number,
+      duracion: Number,
+      sueldo: Number,
     });
+    console.log('recuersos', this.beneficit);
   }
   deleteBeneficit(index) {
-    this.beneficit.splice(index, 1);
+    if (this.beneficit.length != 1) {
+      this.beneficit.splice(index, 1);
+    }
   }
   addTeam() {
     this.team.push({

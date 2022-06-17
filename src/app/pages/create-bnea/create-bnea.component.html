@@ -16,285 +16,12 @@
     <div class="row">
       <div class="col-12">
         <mat-horizontal-stepper #stepper>
-          <!-- 1 paso -->
-          <mat-step [stepControl]="firstFormGroup">
-            <form [formGroup]="firstFormGroup">
-              <div class="row">
-                <div class="col-12">
-                  <span class="text-step">Paso 1
-                    <span class="subtitle-step">
-                      Datos del proyecto
-                    </span>
-                  </span>
-                </div>
-                <div class="col-12 my-3">
-                  <span class="parag-step">Ingresa el nombre del proyecto / proceso a realizar (Si el proceso interactúa
-                    con diferentes areas, ingresa
-                    el nombre con el que se reconoce al proceso dentro de las diferentes áreas).</span>
-                </div>
-                <!-- formulario -->
-                <div class="col-12 my-3">
-                  <div class="row">
-                    <div class="col-12 col-md-6">
-                      <div class="row">
-                        <div class="col-12">
-                          <div class="form-floating mb-3">
-                            <input type="text" class="form-control input-style" id="name"
-                              placeholder="Nombre del proceso / proyecto">
-                            <label for="name">Nombre del proceso / proyecto</label>
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <div class="form-floating mb-3">
-                            <select class="form-select input-style" id="areas" aria-label="Áreas relacionadas"
-                              style="    border: 1px solid #fff !important;">
-                              <option selected>Elige una área</option>
-                              <option value="1">Area One</option>
-                              <option value="2">Area Two</option>
-                              <option value="3">Area Three</option>
-                            </select>
-                            <label for="areas">Áreas relacionadas</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                      <div class="form-floating" style="height: 8.2rem;">
-                        <textarea rows="6" class="form-control input-style" placeholder="Leave a comment here"
-                          id="floatingTextarea"></textarea>
-                        <label for="floatingTextarea">Descripción del proyecto</label>
-                      </div>
-                    </div>
-                    <!-- btn -->
-                    <div class="col-12 text-end my-3">
-                      <button matStepperNext type="button" class="btn btn-info btn-entrar">
-                        <span class="text-warning text-btn">
-                          Continuar
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- <mat-form-field appearance="fill">
-                <mat-label>Name</mat-label>
-                <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-              </mat-form-field> -->
-            </form>
-          </mat-step>
-          <!-- 2 paso -->
-          <mat-step [stepControl]="secondFormGroup">
-            <form [formGroup]="secondFormGroup">
-              <div class="row">
-                <div class="col-12">
-                  <span class="text-step">Paso 2
-                    <span class="subtitle-step">
-                      Razones, objetivos y alcance
-                    </span>
-                  </span>
-                </div>
-                <div class="col-12 my-3">
-                  <span class="parag-step">Ingresa la razón por la cual se está ingresando el BNEA del proyecto /
-                    proceso, selecciona el objetivo
-                    y define el alcance</span>
-                </div>
-                <!-- formulario -->
-                <div class="col-12 my-3">
-                  <div class="row">
-                    <div class="col-12 col-md-6">
-                      <div class="row">
-                        <div class="col-12">
-                          <div class="form-floating mb-3">
-                            <select class="form-select input-style" id="proceso" aria-label="Objetivo del proceso"
-                              style="border: 1px solid #fff !important;">
-                              <option selected>Elige un proceso</option>
-                              <option value="1">Proceso One</option>
-                              <option value="2">Proceso Two</option>
-                              <option value="3">Proceso Three</option>
-                            </select>
-                            <label for="proceso">Objetivo del proceso</label>
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <div class="form-floating mb-3">
-                            <input type="text" class="form-control input-style" id="alcance"
-                              placeholder="Definición de alcance">
-                            <label for="alcance">Definición de alcance</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                      <div class="form-floating" style="height: 8.2rem;">
-                        <textarea rows="6" class="form-control input-style" placeholder="Leave a comment here"
-                          id="problemaTextarea"></textarea>
-                        <label for="problemaTextarea">Descripción del problema</label>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                      <div class="form-floating mb-3">
-                        <input type="text" class="form-control input-style" id="alcance"
-                          placeholder="Impacto del proyecto / proceso">
-                        <label for="alcance">Impacto del proyecto / proceso</label>
-                      </div>
-                    </div>
-
-                  </div>
-                  <div class="row">
-                    <!-- btn -->
-                    <div class="col-12 text-end my-3">
-                      <button matStepperPrevious type="button" class="btn btn-info btn-entrar">
-                        <span class="text-warning text-btn">
-                          Regresar
-                        </span>
-                      </button>
-                      <button matStepperNext type="button" class="btn btn-info btn-entrar">
-                        <span class="text-warning text-btn">
-                          Continuar
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- <mat-form-field appearance="fill">
-                <mat-label>Address</mat-label>
-                <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
-              </mat-form-field> -->
-              <!-- <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button matStepperNext>Next</button>
-              </div> -->
-            </form>
-          </mat-step>
-          <!-- 3 paso  -->
-          <mat-step [stepControl]="thirdFormGroup">
-            <form [formGroup]="thirdFormGroup">
-              <div class="row">
-                <div class="col-12">
-                  <span class="text-step">Paso 3
-                    <span class="subtitle-step">
-                      Fuera de alcance y beneficios
-                    </span>
-                  </span>
-                </div>
-                <div class="col-12 my-3">
-                  <span class="parag-step">Redacta lo que no se verá incluido dentro del proyecto / proceso</span>
-                </div>
-                <!-- fuera de alcance -->
-                <div class="col-12 ">
-                  <div class="col-12 col-md-6">
-                    <div class="form-floating mb-3">
-                      <input type="text" class="form-control input-style" id="fueAlcance"
-                        placeholder="Fuera de alcance">
-                      <label for="fueAlcance">Fuera de alcance</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 my-3">
-                  <span class="parag-step">Selecciona y llena los beneficios esperados tras la implementación del
-                    proyecto / proceso</span>
-                </div>
-                <!-- formulario -->
-                <div class="col-12 my-3">
-                  <div class="row">
-                    <div class="col-6 col-md-3">
-                      <span class="lab-span">Total horas hombre</span>
-                    </div>
-                    <div class="col-6 col-md-3">
-                      <div class="form-floating mb-3">
-                        <input type="number" class="form-control input-style" id="hora" placeholder="Hora">
-                        <label for="hora">Hora</label>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                      <span class="lab-span">Sueldo de un colaborador</span>
-                    </div>
-                    <div class="col-6 col-md-3">
-                      <div class="form-floating mb-3">
-                        <input type="number" class="form-control input-style" id="mxn" placeholder="MXN">
-                        <label for="mxn">MXN</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6 col-md-3">
-                      <span class="lab-span">Personal requerido</span>
-                    </div>
-                    <div class="col-6 col-md-3">
-                      <div class="form-floating mb-3">
-                        <input type="number" class="form-control input-style" id="cantidad" placeholder="Cantidad">
-                        <label for="cantidad">Cantidad</label>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- falta agregar el boton de agregar beneficio -->
-                  <div class="row my-2">
-                    <div class="col-12">
-                      <span (click)="addBenefit()" class="add-beneficit">Agregar Beneficio
-                        <img src="./assets/icon/icon-add.png" alt="icon agregar">
-                      </span>
-                    </div>
-                  </div>
-                  <div class="row my-2" *ngFor="let item of beneficit; index as index">
-                    <div class="col-3">
-                      <div class="form-floating mb-3">
-                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="item.beneficio1" type="text"
-                          class="form-control input-style" id="beneficio1" placeholder="Beneficio">
-                        <label for="beneficio1">Beneficio</label>
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="form-floating mb-3">
-                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="item.cantidad1" type="number"
-                          class="form-control input-style" id="cantidad1" placeholder="Cantidad">
-                        <label for="cantidad1">Cantidad</label>
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="form-floating mb-3">
-                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="item.beneficio2" type="text"
-                          class="form-control input-style" id="beneficio2" placeholder="Beneficio">
-                        <label for="beneficio2">Beneficio</label>
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="form-floating mb-3 position-abs">
-                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="item.cantidad2" type="number"
-                          class="form-control input-style" id="cantidad2" placeholder="Cantidad">
-                        <label for="cantidad2">Cantidad</label>
-                      </div>
-                      <div class="position-delete">
-                        <img (click)="deleteBeneficit(index)" class="delete-icon" src="./assets/icon/icon-delete.png"
-                          alt="icon delete">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- btn -->
-              <div class="row">
-                <div class="col-12 text-end my-3">
-                  <button matStepperPrevious type="button" class="btn btn-info btn-entrar">
-                    <span class="text-warning text-btn">
-                      Regresar
-                    </span>
-                  </button>
-                  <button matStepperNext type="button" class="btn btn-info btn-entrar">
-                    <span class="text-warning text-btn">
-                      Continuar
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </form>
-          </mat-step>
-          <!-- 4 paso  -->
+          <!-- 1 paso   4 paso  -->
           <mat-step [stepControl]="fourFormGroup">
             <form [formGroup]="fourFormGroup">
               <div class="row">
                 <div class="col-12">
-                  <span class="text-step">Paso 4
+                  <span class="text-step">Paso 1
                     <span class="subtitle-step">
                       Tipo de BNEA
                     </span>
@@ -346,9 +73,9 @@
                     <select class="form-select input-style" id="tipoBnea" aria-label="Tipo de BNEA"
                       style="    border: 1px solid #fff !important;">
                       <option selected>Elige una tipo</option>
-                      <option value="1">Tipo One</option>
-                      <option value="2">Tipo Two</option>
-                      <option value="3">Tipo Three</option>
+                      <option value="1">Tipo N</option>
+                      <option value="2">Tipo C</option>
+                      <option value="3">Tipo I</option>
                     </select>
                     <label for="tipoBnea">Tipo de BNEA</label>
                   </div>
@@ -371,12 +98,432 @@
               </div>
             </form>
           </mat-step>
-          <!-- 5 paso  -->
+          <!-- 2 paso  10 paso -->
+          <mat-step [stepControl]="tenFormGroup">
+            <form [formGroup]="tenFormGroup">
+              <div class="row">
+                <div class="col-12">
+                  <span class="text-step">Paso 2
+                    <span class="subtitle-step">
+                      STAKEHOLDERS
+                    </span>
+                  </span>
+                </div>
+                <div class="col-12 my-3">
+                  <span class="parag-step">Encargados de desarrollar estrategias de gestión adecuadas para lograr la
+                    participación eficaz de los impactados a lo
+                    largo del ciclo de vida del proyecto, con base en el análisis de sus necesidades, intereses y el
+                    posible impacto en el
+                    éxito del proyecto</span>
+                </div>
+              </div>
+              <!-- form -->
+              <div class="row my-2">
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control input-style" id="nombreLider"
+                      placeholder="Nombre del líder del proyecto">
+                    <label for="nombreLider">Nombre del líder del proyecto</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating mb-3">
+                    <select class="form-select input-style" id="depaLider"
+                      aria-label="Departamento del líder del proyecto" style="    border: 1px solid #fff !important;">
+                      <option selected>Elige una área</option>
+                      <option value="1">Area One</option>
+                      <option value="2">Area Two</option>
+                      <option value="3">Area Three</option>
+                    </select>
+                    <label for="depaLider">Departamento del líder del proyecto</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating mb-3">
+                    <select class="form-select input-style" id="rolTra" aria-label="Rol de trabajo"
+                      style="    border: 1px solid #fff !important;">
+                      <option selected>Elige una área</option>
+                      <option value="1">Rol One</option>
+                      <option value="2">Rol Two</option>
+                      <option value="3">Rol Three</option>
+                    </select>
+                    <label for="rolTra">Rol de trabajo</label>
+                  </div>
+                </div>
+              </div>
+              <!-- segunda seccion -->
+              <div class="row my-2">
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control input-style" id="nombreLider"
+                      placeholder="Nombre del líder del proyecto">
+                    <label for="nombreLider">Nombre de la persona que recibirá el proyecto</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating mb-3">
+                    <select class="form-select input-style" id="depaProyecto"
+                      aria-label="Departamento que recibirá el proyecto" style="    border: 1px solid #fff !important;">
+                      <option selected>Elige una área</option>
+                      <option value="1">Area One</option>
+                      <option value="2">Area Two</option>
+                      <option value="3">Area Three</option>
+                    </select>
+                    <label for="depaProyecto">Departamento que recibirá el proyecto</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating mb-3">
+                    <select class="form-select input-style" id="rolTra2" aria-label="Rol de trabajo"
+                      style="    border: 1px solid #fff !important;">
+                      <option selected>Elige una área</option>
+                      <option value="1">Rol One</option>
+                      <option value="2">Rol Two</option>
+                      <option value="3">Rol Three</option>
+                    </select>
+                    <label for="rolTra2">Rol de trabajo</label>
+                  </div>
+                </div>
+              </div>
+              <!-- add section -->
+              <div class="row my-2" *ngFor="let item of team index as index">
+                <div class="col-5">
+                  <div class="form-floating mb-3">
+                    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="item.name" type="text"
+                      class="form-control input-style" id="nombre" placeholder="Nombre">
+                    <label for="nombre">Nombre</label>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="form-floating mb-3">
+                    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="item.roll" type="text"
+                      class="form-control input-style" id="roll" placeholder="Rol de trabajo">
+                    <label for="roll">Rol de trabajo</label>
+                  </div>
+                </div>
+                <div class="col-2 align-self-center">
+                  <div class="text-center">
+                    <img (click)="deleteTeam(index)" class="delete-icon" src="./assets/icon/icon-delete.png"
+                      alt="icon delete">
+                  </div>
+                </div>
+              </div>
+              <!-- btn -->
+              <div class="row">
+                <div class="col-12 text-end my-3">
+                  <button matStepperPrevious type="button" class="btn btn-info btn-entrar">
+                    <span class="text-warning text-btn">
+                      Regresar
+                    </span>
+                  </button>
+                  <button (click)="save()" matStepperNext type="button" class="btn btn-info btn-entrar">
+                    <span class="text-warning text-btn">
+                      Guardar
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </mat-step>
+          <!-- 3 paso  1 paso -->
+          <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+              <div class="row">
+                <div class="col-12">
+                  <span class="text-step">Paso 3
+                    <span class="subtitle-step">
+                      Datos del proyecto
+                    </span>
+                  </span>
+                </div>
+                <div class="col-12 my-3">
+                  <span class="parag-step">Ingresa el nombre del proyecto / proceso a realizar (Si el proceso interactúa
+                    con diferentes areas, ingresa
+                    el nombre con el que se reconoce al proceso dentro de las diferentes áreas).</span>
+                </div>
+                <!-- formulario -->
+                <div class="col-12 my-3">
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="form-floating mb-3">
+                            <input type="text" class="form-control input-style" id="name"
+                              placeholder="Nombre del proceso / proyecto">
+                            <label for="name">Nombre del proyecto</label>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-floating mb-3">
+                            <select class="form-select input-style" id="areas" aria-label="Áreas relacionadas"
+                              style="    border: 1px solid #fff !important;">
+                              <option selected>Elige una área</option>
+                              <option value="1">Area One</option>
+                              <option value="2">Area Two</option>
+                              <option value="3">Area Three</option>
+                            </select>
+                            <label for="areas">Áreas relacionadas</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="form-floating" style="height: 8.2rem;">
+                        <textarea rows="6" class="form-control input-style" placeholder="Leave a comment here"
+                          id="floatingTextarea"></textarea>
+                        <label for="floatingTextarea">Descripción del proyecto</label>
+                      </div>
+                    </div>
+                    <!-- btn -->
+                    <div class="col-12 text-end my-3">
+                      <button matStepperNext type="button" class="btn btn-info btn-entrar">
+                        <span class="text-warning text-btn">
+                          Continuar
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+              </mat-form-field> -->
+            </form>
+          </mat-step>
+          <!-- 4 paso  2 paso -->
+          <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+              <div class="row">
+                <div class="col-12">
+                  <span class="text-step">Paso 4
+                    <span class="subtitle-step">
+                      Razones, objetivos y alcance
+                    </span>
+                  </span>
+                </div>
+                <div class="col-12 my-3">
+                  <span class="parag-step">Ingresa la razón por la cual se está ingresando el BNEA del proyecto /
+                    proceso, selecciona el objetivo
+                    y define el alcance</span>
+                </div>
+                <!-- formulario -->
+                <div class="col-12 my-3">
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div class="row">
+                        <!-- <div class="col-12">
+                          <div class="form-floating mb-3">
+                            <select class="form-select input-style" id="proceso" aria-label="Objetivo del proceso"
+                              style="border: 1px solid #fff !important;">
+                              <option selected>Elige un proceso</option>
+                              <option value="1">Proceso One</option>
+                              <option value="2">Proceso Two</option>
+                              <option value="3">Proceso Three</option>
+                            </select>
+                            <label for="proceso">Objetivo del proceso</label>
+                          </div>
+                        </div> -->
+                        <div class="col-12">
+                          <div class="form-floating mb-3">
+                            <input type="text" class="form-control input-style" id="alcance"
+                              placeholder="Definición de la Situación Actual">
+                            <label for="alcance">Definición de la Situación Actual</label>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-floating mb-3">
+                            <input type="text" class="form-control input-style" id="indicadores"
+                              placeholder="Principales indicadores y objetivos">
+                            <label for="indicadores">Principales indicadores y objetivos</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="form-floating" style="height: 8.2rem;">
+                        <textarea rows="6" class="form-control input-style"
+                          placeholder="Descripción del resultado"></textarea>
+                        <label for="resultado">Descripción del resultado</label>
+                      </div>
+                    </div>
+
+
+                  </div>
+                  <div class="row">
+                    <!-- btn -->
+                    <div class="col-12 text-end my-3">
+                      <button matStepperPrevious type="button" class="btn btn-info btn-entrar">
+                        <span class="text-warning text-btn">
+                          Regresar
+                        </span>
+                      </button>
+                      <button matStepperNext type="button" class="btn btn-info btn-entrar">
+                        <span class="text-warning text-btn">
+                          Continuar
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <mat-form-field appearance="fill">
+                <mat-label>Address</mat-label>
+                <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+              </mat-form-field> -->
+              <!-- <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div> -->
+            </form>
+          </mat-step>
+          <!-- 5 paso  3 paso  -->
+          <mat-step [stepControl]="thirdFormGroup">
+            <form [formGroup]="thirdFormGroup">
+              <div class="row">
+                <div class="col-12">
+                  <span class="text-step">Paso 5
+                    <span class="subtitle-step">
+                      Fuera de alcance y beneficios
+                    </span>
+                  </span>
+                </div>
+                <div class="col-12 my-3">
+                  <span class="parag-step">Redacta lo que no se verá incluido dentro del proyecto / proceso</span>
+                </div>
+                <!-- fuera de alcance -->
+                <div class="col-12 ">
+                  <div class="col-12 col-md-6">
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control input-style" id="fueAlcance"
+                        placeholder="Fuera de alcance">
+                      <label for="fueAlcance">Fuera de alcance</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- btn -->
+              <div class="row">
+                <div class="col-12 text-end my-3">
+                  <button matStepperPrevious type="button" class="btn btn-info btn-entrar">
+                    <span class="text-warning text-btn">
+                      Regresar
+                    </span>
+                  </button>
+                  <button matStepperNext type="button" class="btn btn-info btn-entrar">
+                    <span class="text-warning text-btn">
+                      Continuar
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </mat-step>
+          <!-- 6 paso   3 paso  -->
+          <mat-step [stepControl]="thirdFormGroup">
+            <form [formGroup]="thirdFormGroup">
+              <div class="row">
+                <div class="col-12">
+                  <span class="text-step">Paso 6
+                    <span class="subtitle-step">
+                      Recursos Necesarios
+                    </span>
+                  </span>
+                </div>
+                <div class="col-12 my-3">
+                  <span class="parag-step">Aguegar Recurso</span>
+                </div>
+                <!-- formulario -->
+                <div class="col-12 my-3 text-end">
+                  <span (click)="addBenefit()" class="add-beneficit">Agregar Recurso
+                    <img src="./assets/icon/icon-add.png" alt="icon agregar">
+                  </span>
+                </div>
+
+                <div class="col-12 my-3">
+                  <div class="row my-2" *ngFor="let item of beneficit; index as index">
+                    <div class="col-12 text-end my-1" *ngIf="index != 0">
+                      <img (click)="deleteBeneficit(index)" class="delete-icon" src="./assets/icon/icon-delete.png"
+                        alt="icon delete">
+                    </div>
+                    <div class="col-12">
+                      <div class="row">
+                        <div class="col-6 col-md-3">
+                          <span class="lab-span">Recurso</span>
+                        </div>
+                        <div class="col-6 col-md-3">
+                          <div class="form-floating mb-3">
+                            <select [ngModelOptions]="{standalone: true}" [(ngModel)]="item.recurso"
+                              class="form-select input-style" id="recurso" aria-label="Recurso"
+                              style="    border: 1px solid #fff !important;">
+                              <option selected>Elige una área</option>
+                              <option value="1">Recurso One</option>
+                              <option value="2">Recurso Two</option>
+                              <option value="3">Recurso Three</option>
+                            </select>
+                            <label for="recurso">Recurso</label>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                          <span class="lab-span">Cantidad</span>
+                        </div>
+                        <div class="col-6 col-md-3">
+                          <div class="form-floating mb-3">
+                            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="item.cantidad" type="number"
+                              class="form-control input-style" id="cantidadRecur" placeholder="MXN">
+                            <label for="cantidadRecur">Cantidad</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6 col-md-3">
+                          <span class="lab-span">Duración (semanas)</span>
+                        </div>
+                        <div class="col-6 col-md-3">
+                          <div class="form-floating mb-3">
+                            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="item.duracion" type="number"
+                              class="form-control input-style" id="duracion" placeholder="duracion">
+                            <label for="cantidad">Duracion</label>
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                          <span class="lab-span">Sueldo de colaborador</span>
+                        </div>
+                        <div class="col-6 col-md-3">
+                          <div class="form-floating mb-3">
+                            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="item.sueldo" type="number"
+                              class="form-control input-style" id="mxn" placeholder="MXN">
+                            <label for="mxn">Sueldo</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- btn -->
+              <div class="row">
+                <div class="col-12 text-end my-3">
+                  <button matStepperPrevious type="button" class="btn btn-info btn-entrar">
+                    <span class="text-warning text-btn">
+                      Regresar
+                    </span>
+                  </button>
+                  <button matStepperNext type="button" class="btn btn-info btn-entrar">
+                    <span class="text-warning text-btn">
+                      Continuar
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </mat-step>
+          <!-- 7 paso  5 paso  -->
           <mat-step [stepControl]="fiveFormGroup">
             <form [formGroup]="fiveFormGroup">
               <div class="row">
                 <div class="col-12">
-                  <span class="text-step">Paso 5
+                  <span class="text-step">Paso 7
                     <span class="subtitle-step">
                       Inversiones inciales
                     </span>
@@ -390,204 +537,259 @@
               </div>
               <!-- form -->
               <div class="row my-3">
-                <div class="col-4">
+                <div class="col-3">
                   <div class="row">
                     <div class="col-2 align-center">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkDesaSolu">
                     </div>
                     <div class="col-10 align-center">
-                      <span class="label-check">
+                      <label for="checkDesaSolu" class="label-check">
                         Desarrollo de la solución con proveedor externo
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-desarrollo" placeholder="Especificar">
-                    <label for="e-desarrollo">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantDesa" placeholder="Cantidad">
+                    <label for="cantDesa">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-desarrolloSol" placeholder="Especificar">
+                    <label for="e-desarrolloSol">Especificar</label>
                   </div>
                 </div>
               </div>
               <div class="row my-3">
-                <div class="col-4">
+                <div class="col-3">
                   <div class="row">
                     <div class="col-2 align-center">
-                      <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                      <input id="checkServiProdu" class="form-check-input"
+                        style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;" type="checkbox" value=""
+                        id="check">
                     </div>
                     <div class="col-10 align-center">
-                      <span class="label-check">
+                      <label for="checkServiProdu" class="label-check">
                         Servidores de producción
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-servidores" placeholder="Especificar">
-                    <label for="e-servidores">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantServiPro" placeholder="Cantidad">
+                    <label for="cantServiPro">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="servidoProduc" placeholder="Especificar">
+                    <label for="servidoProduc">Especificar</label>
                   </div>
                 </div>
               </div>
               <!-- software -->
               <div class="row my-3">
-                <div class="col-4">
+                <div class="col-3">
                   <div class="row">
                     <div class="col-2 align-center">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkLicenciSoft">
                     </div>
                     <div class="col-10 align-center">
-                      <span class="label-check">
+                      <label for="checkLicenciSoft" class="label-check">
                         Licencias de Software de terceros
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-licencias" placeholder="Especificar">
-                    <label for="e-licencias">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantLicenSoftw" placeholder="Cantidad">
+                    <label for="cantLicenSoftw">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="licenciaSoft" placeholder="Especificar">
+                    <label for="licenciaSoft">Especificar</label>
                   </div>
                 </div>
               </div>
               <!-- Mobiliario  -->
               <div class="row my-3">
-                <div class="col-4 align-center">
+                <div class="col-3 align-center">
                   <div class="row align-center">
                     <div class="col-2">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkMobiliaInv">
                     </div>
                     <div class="col-10">
-                      <span class="label-check">
+                      <label for="checkMobiliaInv" class="label-check">
                         Mobiliario
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8 align-center">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-mobiliario" placeholder="Especificar">
-                    <label for="e-mobiliario">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantMobiliarInv" placeholder="Cantidad">
+                    <label for="cantMobiliarInv">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7 align-center">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-moobiliaInv" placeholder="Especificar">
+                    <label for="e-moobiliaInv">Especificar</label>
                   </div>
                 </div>
               </div>
               <!-- Equipo de cómputo u otra tecnología  -->
               <div class="row my-3">
-                <div class="col-4 align-center">
+                <div class="col-3 align-center">
                   <div class="row">
                     <div class="col-2">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkEquiComT">
                     </div>
                     <div class="col-10">
-                      <span class="label-check">
+                      <label for="checkEquiComT" class="label-check">
                         Equipo de cómputo u otra tecnología
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8 align-center">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-equipo" placeholder="Especificar">
-                    <label for="e-equipo">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantEquiCompu" placeholder="Cantidad">
+                    <label for="cantEquiCompu">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7 align-center">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-equipoCompu" placeholder="Especificar">
+                    <label for="e-equipoCompu">Especificar</label>
                   </div>
                 </div>
               </div>
               <!-- Edificios  -->
               <div class="row my-3">
-                <div class="col-4 align-center">
+                <div class="col-3 align-center">
                   <div class="row">
                     <div class="col-2">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkEdifiInv">
                     </div>
                     <div class="col-10">
-                      <span class="label-check">
+                      <label for="checkEdifiInv" class="label-check">
                         Edificios
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8 align-center">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-edificios" placeholder="Especificar">
-                    <label for="e-edificios">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantEdifiInv" placeholder="Cantidad">
+                    <label for="cantEdifiInv">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7 align-center">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-edificiosInv" placeholder="Especificar">
+                    <label for="e-edificiosInv">Especificar</label>
                   </div>
                 </div>
               </div>
               <!-- Licencias  -->
               <div class="row my-3">
-                <div class="col-4 align-center">
+                <div class="col-3 align-center">
                   <div class="row">
                     <div class="col-2">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkLicenInv">
                     </div>
                     <div class="col-10">
-                      <span class="label-check">
+                      <label for="checkLicenInv" class="label-check">
                         Licencias
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8 align-center">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-licencias" placeholder="Especificar">
-                    <label for="e-licencias">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantLicenInv" placeholder="Cantidad">
+                    <label for="cantLicenInv">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7 align-center">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-licenciasInv" placeholder="Especificar">
+                    <label for="e-licenciasInv">Especificar</label>
                   </div>
                 </div>
               </div>
               <!-- Terrenos  -->
               <div class="row my-3">
-                <div class="col-4 align-center">
+                <div class="col-3 align-center">
                   <div class="row">
                     <div class="col-2">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkTerreInv">
                     </div>
                     <div class="col-10">
-                      <span class="label-check">
+                      <label for="checkTerreInv" class="label-check">
                         Terrenos
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8 align-center">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-terrenos" placeholder="Especificar">
-                    <label for="e-terrenos">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantTerreInv" placeholder="Cantidad">
+                    <label for="cantTerreInv">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7 align-center">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-terrenosInv" placeholder="Especificar">
+                    <label for="e-terrenosInv">Especificar</label>
                   </div>
                 </div>
               </div>
               <!-- Sillas  -->
               <div class="row my-3">
-                <div class="col-4 align-center">
+                <div class="col-3 align-center">
                   <div class="row">
                     <div class="col-2">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkSillInv">
                     </div>
                     <div class="col-10">
-                      <span class="label-check">
+                      <label for="checkSillInv" class="label-check">
                         Sillas
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8 align-center">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-sillas" placeholder="Especificar">
-                    <label for="e-sillas">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantSillInv" placeholder="Cantidad">
+                    <label for="cantSillInv">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7 align-center">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-sillasInv" placeholder="Especificar">
+                    <label for="e-sillasInv">Especificar</label>
                   </div>
                 </div>
               </div>
               <!-- Otros  -->
               <div class="row my-3">
-                <div class="col-4 align-center">
+                <div class="col-3 align-center">
                   <div class="row">
                     <div class="col-2">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
@@ -600,7 +802,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-8 align-center">
+                <div class="col-2">
+                  <div class="form-floating">
+                    <input type="number" class="form-control input-style" id="cantSillInv" placeholder="Cantidad">
+                    <label for="cantSillInv">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7 align-center">
                   <div class="form-floating">
                     <input type="text" class="form-control input-style" id="e-Otros" placeholder="Especificar">
                     <label for="e-Otros">Especificar</label>
@@ -624,12 +832,12 @@
               </div>
             </form>
           </mat-step>
-          <!-- 6 paso  -->
+          <!-- 8 paso  -->
           <mat-step [stepControl]="sixFormGroup">
             <form [formGroup]="sixFormGroup">
               <div class="row">
                 <div class="col-12">
-                  <span class="text-step">Paso 6
+                  <span class="text-step">Paso 8
                     <span class="subtitle-step">
                       Depreciaciones y amortizaciones
                     </span>
@@ -827,12 +1035,12 @@
               </div>
             </form>
           </mat-step>
-          <!-- 7 paso  -->
+          <!-- 9 paso  7 paso  -->
           <mat-step [stepControl]="sevenFormGroup">
             <form [formGroup]="sevenFormGroup">
               <div class="row">
                 <div class="col-12">
-                  <span class="text-step">Paso 7
+                  <span class="text-step">Paso 9
                     <span class="subtitle-step">
                       Impacto en los ingresos
                     </span>
@@ -847,85 +1055,109 @@
               </div>
               <!-- form -->
               <div class="row my-3">
-                <div class="col-4">
+                <div class="col-3">
                   <div class="row">
                     <div class="col-2 align-center">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check_margen">
+                        type="checkbox" value="" id="checkMargen">
                     </div>
                     <div class="col-10 align-center">
-                      <span class="label-check">
+                      <label for="checkMargen" class="label-check">
                         Margen comercial neto
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-desarrollo" placeholder="Especificar">
-                    <label for="e-desarrollo">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantServiPro" placeholder="Cantidad">
+                    <label for="cantServiPro">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-margImpI" placeholder="Especificar">
+                    <label for="e-margImpI">Especificar</label>
                   </div>
                 </div>
               </div>
               <div class="row my-3">
-                <div class="col-4">
+                <div class="col-3">
                   <div class="row">
                     <div class="col-2 align-center">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkMargImp">
                     </div>
                     <div class="col-10 align-center">
-                      <span class="label-check">
+                      <label for="checkMargImp" class="label-check">
                         Margen financiero neto
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-servidores" placeholder="Especificar">
-                    <label for="e-servidores">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantServiPro" placeholder="Cantidad">
+                    <label for="cantServiPro">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-margImp" placeholder="Especificar">
+                    <label for="e-margImp">Especificar</label>
                   </div>
                 </div>
               </div>
               <div class="row my-3">
-                <div class="col-4">
+                <div class="col-3">
                   <div class="row">
                     <div class="col-2 align-center">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkReduccII">
                     </div>
                     <div class="col-10 align-center">
-                      <span class="label-check">
+                      <label for="checkReduccII" class="label-check">
                         Reducción neta en cuenta perdida final
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-licencias" placeholder="Especificar">
-                    <label for="e-licencias">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantServiPro" placeholder="Cantidad">
+                    <label for="cantServiPro">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-reduccion" placeholder="Especificar">
+                    <label for="e-reduccion">Especificar</label>
                   </div>
                 </div>
               </div>
               <div class="row my-3">
-                <div class="col-4 align-center">
+                <div class="col-3 align-center">
                   <div class="row align-center">
                     <div class="col-2">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkCLTVII">
                     </div>
                     <div class="col-10">
-                      <span class="label-check">
+                      <label for="checkCLTVII" class="label-check">
                         Mayor volumen de CLTV por cantidad de clientes generados netos adicionales, o reducción en la
                         cantidad de clientes
                         perdidos
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8 align-center">
+                <div class="col-2">
+                  <div class="form-floating">
+                    <input type="number" class="form-control input-style" id="cantServiPro" placeholder="Cantidad">
+                    <label for="cantServiPro">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7 align-center">
                   <div class="form-floating">
                     <input type="text" class="form-control input-style" id="e-mobiliario" placeholder="Especificar">
                     <label for="e-mobiliario">Especificar</label>
@@ -933,23 +1165,29 @@
                 </div>
               </div>
               <div class="row my-3">
-                <div class="col-4 align-center">
+                <div class="col-3 align-center">
                   <div class="row">
                     <div class="col-2">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkOtrosII">
                     </div>
                     <div class="col-10">
-                      <span class="label-check">
+                      <label for="checkOtrosII" class="label-check">
                         Otros ingresos
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8 align-center">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-equipo" placeholder="Especificar">
-                    <label for="e-equipo">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantOtrosII" placeholder="Cantidad">
+                    <label for="cantOtrosII">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7 align-center">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-otrosII" placeholder="Especificar">
+                    <label for="e-otrosII">Especificar</label>
                   </div>
                 </div>
               </div>
@@ -970,44 +1208,50 @@
               </div>
             </form>
           </mat-step>
-          <!-- 8 paso  -->
+          <!-- 10 paso  8 paso  -->
           <mat-step [stepControl]="eightFormGroup">
             <form [formGroup]="eightFormGroup">
               <div class="row">
                 <div class="col-12">
-                  <span class="text-step">Paso 8
+                  <span class="text-step">Paso 10
                     <span class="subtitle-step">
-                      Beneficios o costos mejorados
+                      Beneficios o afectaciones por gastos
                     </span>
                   </span>
                 </div>
                 <div class="col-12 my-3">
-                  <span class="parag-step">A lo largo de cualquier proyecto existen costos implementados durante su
-                    proceso. Estos costos están involucrados desde
+                  <span class="parag-step">A lo largo de cualquier proyecto existen gastos implementados durante su
+                    proceso. Estos gastos están involucrados desde
                     el mantenimiento a equipos hasta la nómina del personal y lugares de trabajo del equipo interno.
                     <br>
 
-                    Teniendo esto en consideración, indique cuales son los beneficios o costos que se verán mejorados
+                    Teniendo esto en consideración, indique cuales son los beneficios o gastos que se verán mejorados
                     debido a la
                     automatización y una breve explicación de la forma en la que se ve influenciado.</span>
                 </div>
               </div>
               <!-- form -->
               <div class="row my-3">
-                <div class="col-4">
+                <div class="col-3">
                   <div class="row">
                     <div class="col-2 align-center">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check_margen">
+                        type="checkbox" value="" id="checkBenef">
                     </div>
                     <div class="col-10 align-center">
-                      <span class="label-check">
+                      <label for="checkBenef" class="label-check">
                         Mantenimiento de equipos
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8">
+                <div class="col-2">
+                  <div class="form-floating">
+                    <input type="number" class="form-control input-style" id="cantServiPro" placeholder="Cantidad">
+                    <label for="cantServiPro">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7">
                   <div class="form-floating">
                     <input type="text" class="form-control input-style" id="e-desarrollo" placeholder="Especificar">
                     <label for="e-desarrollo">Especificar</label>
@@ -1015,163 +1259,206 @@
                 </div>
               </div>
               <div class="row my-3">
-                <div class="col-4">
+                <div class="col-3">
                   <div class="row">
                     <div class="col-2 align-center">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkSopoMoniB">
                     </div>
                     <div class="col-10 align-center">
-                      <span class="label-check">
+                      <label for="checkSopoMoniB" class="label-check">
                         Soporte y monitoreo
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-servidores" placeholder="Especificar">
-                    <label for="e-servidores">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantSopoMoB" placeholder="Cantidad">
+                    <label for="cantSopoMoB">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-soporMoniB" placeholder="Especificar">
+                    <label for="e-soporMoniB">Especificar</label>
                   </div>
                 </div>
               </div>
               <div class="row my-3">
-                <div class="col-4">
+                <div class="col-3">
                   <div class="row">
                     <div class="col-2 align-center">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkPlanPerB">
                     </div>
                     <div class="col-10 align-center">
-                      <span class="label-check">
+                      <label for="checkPlanPerB" class="label-check">
                         Plantas de personal disminuidas
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-licencias" placeholder="Especificar">
-                    <label for="e-licencias">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantPlanPerB" placeholder="Cantidad">
+                    <label for="cantPlanPerB">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-PlantaPer" placeholder="Especificar">
+                    <label for="e-PlantaPer">Especificar</label>
                   </div>
                 </div>
               </div>
               <div class="row my-3">
-                <div class="col-4 align-center">
+                <div class="col-3 align-center">
                   <div class="row align-center">
                     <div class="col-2">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkRentaEdiB">
                     </div>
                     <div class="col-10">
-                      <span class="label-check">
+                      <label for="checkRentaEdiB" class="label-check">
                         Renta de edificios
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8 align-center">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-mobiliario" placeholder="Especificar">
-                    <label for="e-mobiliario">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantRentaEdifiB" placeholder="Cantidad">
+                    <label for="cantRentaEdifiB">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7 align-center">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-rentaEdifB" placeholder="Especificar">
+                    <label for="e-rentaEdifB">Especificar</label>
                   </div>
                 </div>
               </div>
               <div class="row my-3">
-                <div class="col-4 align-center">
+                <div class="col-3 align-center">
                   <div class="row">
                     <div class="col-2">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkComGaGB">
                     </div>
                     <div class="col-10">
-                      <span class="label-check">
+                      <label for="checkComGaGB" class="label-check">
                         Combustibles, gas, gasolina, diesel, etc.
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8 align-center">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-equipo" placeholder="Especificar">
-                    <label for="e-equipo">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantCombuGasGaB" placeholder="Cantidad">
+                    <label for="cantCombuGasGaB">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7 align-center">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-CombuGasGB" placeholder="Especificar">
+                    <label for="e-CombuGasGB">Especificar</label>
                   </div>
                 </div>
               </div>
               <div class="row my-3">
-                <div class="col-4 align-center">
+                <div class="col-3 align-center">
                   <div class="row">
                     <div class="col-2">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkEnrElecB">
                     </div>
                     <div class="col-10">
-                      <span class="label-check">
+                      <label for="checkEnrElecB" class="label-check">
                         Energía eléctrica
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8 align-center">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-equipo" placeholder="Especificar">
-                    <label for="e-equipo">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantEnerElecB" placeholder="Cantidad">
+                    <label for="cantEnerElecB">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7 align-center">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-energiElecB" placeholder="Especificar">
+                    <label for="e-energiElecB">Especificar</label>
                   </div>
                 </div>
               </div>
               <div class="row my-3">
-                <div class="col-4 align-center">
+                <div class="col-3 align-center">
                   <div class="row">
                     <div class="col-2">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkSuminHojPB">
                     </div>
                     <div class="col-10">
-                      <span class="label-check">
+                      <label for="checkSuminHojPB" class="label-check">
                         Suministros (Hojas, papel, tóner, cajas, bolsas, etc.)
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8 align-center">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-equipo" placeholder="Especificar">
-                    <label for="e-equipo">Especificar</label>
+                    <input  type="number" class="form-control input-style" id="cantSumiHoPapB" placeholder="Cantidad">
+                    <label for="cantSumiHoPapB">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7 align-center">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-suminHojPaB" placeholder="Especificar">
+                    <label for="e-suminHojPaB">Especificar</label>
                   </div>
                 </div>
               </div>
               <div class="row my-3">
-                <div class="col-4 align-center">
+                <div class="col-3 align-center">
                   <div class="row">
                     <div class="col-2">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkMultasB">
                     </div>
                     <div class="col-10">
-                      <span class="label-check">
+                      <label for="checkMultasB" class="label-check">
                         Multas
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-8 align-center">
+                <div class="col-2">
                   <div class="form-floating">
-                    <input type="text" class="form-control input-style" id="e-equipo" placeholder="Especificar">
-                    <label for="e-equipo">Especificar</label>
+                    <input type="number" class="form-control input-style" id="cantMultasB" placeholder="Cantidad">
+                    <label for="cantMultasB">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-7 align-center">
+                  <div class="form-floating">
+                    <input type="text" class="form-control input-style" id="e-multasB" placeholder="Especificar">
+                    <label for="e-multasB">Especificar</label>
                   </div>
                 </div>
               </div>
-              <div class="row my-3">
+              <!-- no se veran estas -->
+              <!-- <div class="row my-3">
                 <div class="col-4 align-center">
                   <div class="row">
                     <div class="col-2">
                       <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;"
-                        type="checkbox" value="" id="check">
+                        type="checkbox" value="" id="checkMantEquiB">
                     </div>
                     <div class="col-10">
-                      <span class="label-check">
+                      <label for="checkMantEquiB" class="label-check">
                         Mantenimiento de equipo de cómputo
-                      </span>
+                      </label>
                     </div>
                   </div>
                 </div>
@@ -1350,7 +1637,7 @@
                     <label for="e-equipo">Especificar</label>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- btn -->
               <div class="row">
                 <div class="col-12 text-end my-3">
@@ -1474,82 +1761,7 @@
               </div>
             </form>
           </mat-step>
-          <!-- 10 paso  -->
-          <mat-step [stepControl]="tenFormGroup">
-            <form [formGroup]="tenFormGroup">
-              <div class="row">
-                <div class="col-12">
-                  <span class="text-step">Paso 10
-                    <span class="subtitle-step">
-                      Equipo de trabajo
-                    </span>
-                  </span>
-                </div>
-                <div class="col-12 my-3">
-                  <span class="parag-step">Ingresa el nombre y rol del equipo de trabajo con el que se estará ejecutando
-                    su proyecto</span>
-                </div>
-              </div>
-              <!-- form -->
-              <div class="row my-2">
-                <div class="col-5">
-                  <div class="form-floating mb-3">
-                    <input type="text" class="form-control input-style" id="nombre1" placeholder="Nombre">
-                    <label for="nombre1">Nombre</label>
-                  </div>
-                </div>
-                <div class="col-5">
-                  <div class="form-floating mb-3">
-                    <input type="text" class="form-control input-style" id="roll1" placeholder="Rol de trabajo">
-                    <label for="roll1">Rol de trabajo</label>
-                  </div>
-                </div>
-                <div class="col-2 align-self-center">
-                  <div class="text-center">
-                    <img (click)="addTeam()" class="delete-icon" src="./assets/icon/icon-add.png" alt="icon delete">
-                  </div>
-                </div>
-              </div>
-              <!-- add section -->
-              <div class="row my-2" *ngFor="let item of team index as index">
-                <div class="col-5">
-                  <div class="form-floating mb-3">
-                    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="item.name" type="text"
-                      class="form-control input-style" id="nombre" placeholder="Nombre">
-                    <label for="nombre">Nombre</label>
-                  </div>
-                </div>
-                <div class="col-5">
-                  <div class="form-floating mb-3">
-                    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="item.roll" type="text"
-                      class="form-control input-style" id="roll" placeholder="Rol de trabajo">
-                    <label for="roll">Rol de trabajo</label>
-                  </div>
-                </div>
-                <div class="col-2 align-self-center">
-                  <div class="text-center">
-                    <img (click)="deleteTeam(index)" class="delete-icon" src="./assets/icon/icon-delete.png"
-                      alt="icon delete">
-                  </div>
-                </div>
-              </div>
-              <!-- btn -->
-              <div class="row">
-                <div class="col-12 text-end my-3">
-                  <button matStepperPrevious type="button" class="btn btn-info btn-entrar">
-                    <span class="text-warning text-btn">
-                      Regresar
-                    </span>
-                  </button>
-                  <button (click)="save()"   matStepperNext type="button" class="btn btn-info btn-entrar">
-                    <span class="text-warning text-btn">
-                      Guardar
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </form>
-          </mat-step>
+
         </mat-horizontal-stepper>
       </div>
     </div>
