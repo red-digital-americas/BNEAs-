@@ -1,0 +1,178 @@
+.main {
+  background-image: url(./../../../assets/image/background-fafafa.png) !important;
+  /* background-image: linear-gradient(to top, #faeafa, #fe7afa) !important; */
+  width: 100%;
+  /* height: 200vh; */
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.cancel {
+  font-family: Montserrat;
+  font-size: 0.725rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.title-BNEAs {
+  font-family: Montserrat;
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(29, 29, 27, 0.8);
+}
+
+.text-step {
+  font-family: Roboto;
+  font-size: 1.27rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(29, 29, 27, 0.8);
+}
+
+.subtitle-step {
+  font-family: Roboto;
+  font-size: 0.975rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.51);
+}
+
+.parag-step {
+  font-family: Roboto;
+  font-size: 0.975rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.51);
+}
+
+/* btn continuar */
+.btn-entrar {
+  text-transform: capitalize;
+  font-family: Roboto;
+  font-size: 0.875rem;
+}
+
+.text-btn {
+  margin-right: 1.8rem !important;
+  margin-left: 1.8rem !important;
+}
+
+.input-style {
+  font-family: Roboto;
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  /* text-align: center; */
+  color: rgba(29, 29, 27, 0.8);
+  background-color: #fff;
+}
+
+.form-floating {
+  background-color: #fff;
+  border-radius: 6.8px;
+  box-shadow: 0 3px 9px 0 rgba(12, 110, 182, 0.1);
+}
+
+.lab-span {
+  font-family: Roboto;
+  font-size: .975rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.51);
+}
+
+.add-beneficit {
+  font-family: Montserrat;
+  font-size: .76rem;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: right;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.position-delete {
+  position: relative;
+  text-align: end;
+}
+
+.position-abs {
+  position: absolute;
+}
+
+.header-table {
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+  background-color: #0b5d9a;
+}
+
+.id-table {
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #1d1d1b;
+}
+
+.info-table {
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.51);
+
+}
+
+.label-check {
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(29, 29, 27, 0.8);
+}
+
+.align-self-center {
+  align-self: center;
+}

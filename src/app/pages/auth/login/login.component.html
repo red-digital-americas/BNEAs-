@@ -1,0 +1,59 @@
+<div class="main">
+  <div class="justify">
+    <div class="container-logo">
+      <img src="./assets/logo-login.png" alt="Rebel wings" />
+    </div>
+    <div class="mt-4 mb-3">
+      <span class="title-admon">Bienvenido a<span class="portalBNEAs"> tu portal BNEA,</span> Aquí podrás obtener los
+        documentos requeridos en el banco de manera rápida y automática.</span>
+    </div>
+    <div class="mb-2">
+      <span class="access">Ingresa</span>
+    </div>
+    <div class="my-3">
+      <div class="input-group mb-3">
+        <input type="email" autocomplete="off" [(ngModel)]="email" class="form-control input-style text-center"
+          placeholder="Correo electrónico" aria-label="Correo electrónico" aria-describedby="basic-addon2" />
+        <div class="input-group-append">
+          <span style="background-color: white;" class="input-group-text">
+            <i style="color: #000000; background-color: white;" class="nc-icon nc-email-85"></i>
+          </span>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="password" autocomplete="off" [(ngModel)]="password" class="form-control input-style text-center"
+          placeholder="Contraseña" aria-describedby="basic-addon2" />
+        <div class="input-group-append">
+          <span style="background-color: white;" class="input-group-text">
+            <i style=" color: #000000; background-color: white;" class="nc-icon nc-key-25"></i>
+          </span>
+        </div>
+      </div>
+      <div class="my-2">
+        <div (click)="forgotPassword()" class="puntero" class="forgot-password">
+          <span class="text-info">Recuperar contraseña</span>
+        </div>
+      </div>
+
+      <div class="my-1 text-center ">
+        <!-- [disabled]="email == '' || password == '' || disabled == true" -->
+        <button (click)="entrar()" type="button" class="btn btn-info btn-entrar">
+          <!-- (click)="login(email, password)" -->
+          <span class="text-warning text-btn">
+            Entrar
+          </span>
+        </button>
+      </div>
+      <div class=" my-2 ">
+        <div class=" tienes-cuenta">
+          <span>¿Aún no tienes una cuenta?</span>
+        </div>
+      </div>
+      <div class="my-2 ">
+        <div (click)="signUp()" class="registrate" style="cursor:pointer;">
+          <span class="text-info">Regístrate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

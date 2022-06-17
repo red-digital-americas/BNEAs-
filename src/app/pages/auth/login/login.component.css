@@ -1,0 +1,100 @@
+.main {
+  background-image: url("./../../../../assets/image/background-blue.png");
+  /* background-image: linear-gradient(to top, #faeafa, #fe7afa) !important; */
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  /* background-position: 50%; */
+}
+
+.justify {
+  width: 20.93rem;
+  padding: 32px 26px 33px 27px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 6.8px;
+  box-shadow: 0 2px 14px 0 rgba(12, 110, 182, 0.1);
+  background-color: #fafafa;
+}
+
+.container-logo {
+  text-align: center;
+}
+
+.registrate {
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.title-admon {
+  font-size: 0.79rem;
+  font-family: Roboto;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.51);
+}
+.portalBNEAs {
+  font-weight: 500;
+}
+.tienes-cuenta {
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: Roboto;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.51);
+}
+
+.forgot-password {
+  text-align: end;
+  font-weight: 800;
+  font-size: 0.875rem;
+  font-family: roboto;
+}
+
+.puntero {
+  cursor: pointer;
+}
+.access {
+  font-size: 1.069rem;
+  color: rgba(0, 0, 0, 0.51);
+  font-family: Roboto;
+  font-weight: 500;
+}
+.input-style {
+  font-family: Roboto;
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: rgba(29, 29, 27, 0.8);
+  background-color: #fff;
+}
+.input-group-append {
+  background-color: #fff;
+}
+
+.input-group {
+  background-color: #fff;
+  border-radius: 6.8px;
+  box-shadow: 0 3px 9px 0 rgba(12, 110, 182, 0.1);
+}
+.btn-entrar {
+  text-transform: capitalize;
+  font-family: Roboto;
+  font-size: 0.875rem;
+}
+.text-btn {
+  margin-right: 1.8rem !important;
+  margin-left: 1.8rem !important;
+}

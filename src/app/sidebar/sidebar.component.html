@@ -1,0 +1,17 @@
+<div class="sidebar-wrapper">
+  <div class="logo" style="box-shadow: 0 8px 16px 0 rgba(12, 110, 182, 0.1);
+  background-color: #fff;">
+    <div style="text-align: start;" class="simple-text logo-normal">
+      <img style="width: 70%" src="./assets/logo.png" title="Bancoppel" />
+    </div>
+  </div>
+  <ul class="nav">
+    <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{ menuItem.class }}">
+      <a [routerLink]="[menuItem.path]">
+        <i class="bi  {{menuItem.icon}} menu"></i>
+        <!-- <i class="nc-icon {{ menuItem.icon }}"></i> -->
+        <span class="menu">{{ menuItem.title }}</span>
+      </a>
+    </li>
+  </ul>
+</div>

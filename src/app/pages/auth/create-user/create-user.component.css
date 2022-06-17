@@ -1,0 +1,135 @@
+.main {
+  /* background-color: #fafafa; */
+  background-image: url('./../../../../assets/image/background-fafafa.png');
+  /* background-image: linear-gradient(to top, #faeafa, #fe7afa) !important; */
+  width: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  padding-top: 5rem;
+}
+
+.back {
+  font-family: Montserrat;
+  font-size: 0.725rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.title-BNEAs {
+  font-family: Montserrat;
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(29, 29, 27, 0.8);
+}
+
+.text-step {
+  font-family: Roboto;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(29, 29, 27, 0.8);
+}
+
+.subtitle-step {
+  font-family: Roboto;
+  font-size: 0.975rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.51);
+  margin-left: 0.8rem;
+}
+
+/* btn continuar */
+.btn-entrar {
+  text-transform: capitalize;
+  font-family: Roboto;
+  font-size: 0.875rem;
+}
+
+.text-btn {
+  margin-right: 1.8rem !important;
+  margin-left: 1.8rem !important;
+}
+
+.input-style {
+  font-family: Roboto;
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  /* text-align: center; */
+  color: rgba(29, 29, 27, 0.8);
+  background-color: #fff;
+}
+
+.form-floating {
+  background-color: #fff;
+  border-radius: 6.8px;
+  box-shadow: 0 3px 9px 0 rgba(12, 110, 182, 0.1);
+}
+
+.lab-span {
+  font-family: Roboto;
+  font-size: 0.975rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.51);
+}
+
+.quest-code {
+  font-family: Roboto;
+  font-size: 0.98rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.51);
+}
+
+.align-center {
+  align-self: center;
+}
+
+.reenviar {
+  font-family: Roboto;
+  font-size: 0.98rem;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0c6eb6;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-stepper-horizontal .mat-horizontal-stepper-header .mat-step-header .mat-step-label {
+  min-width: 0px;
+  color: red;
+}

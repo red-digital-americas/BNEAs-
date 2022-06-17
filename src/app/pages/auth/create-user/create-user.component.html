@@ -1,0 +1,237 @@
+<nav style=" box-shadow: 0 8px 16px 0 rgba(12, 110, 182, 0.1);
+  background-color: #fff;" class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-black">
+  <div class="row">
+    <div style="text-align: center;" class="col-12 mx-2">
+      <img src="./assets/logo.png" title="Bancoppel" />
+    </div>
+  </div>
+</nav>
+<div class="main">
+  <div class="container">
+    <!-- header -->
+    <div class="row">
+      <div class="col-12">
+        <span (click)="back()">
+          <img src="./assets/icon/icon-regresar.svg" alt="regresar" width="25" height="25">
+          <span class="back"> Cancelar</span>
+        </span>
+      </div>
+      <div class="col-12 my-4">
+        <span class="title-BNEAs">Registro de usuario</span>
+      </div>
+    </div>
+    <!-- body -->
+    <div class="row my-2">
+      <div class="col-12">
+        <mat-horizontal-stepper #stepper>
+          <!-- 1 paso -->
+          <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+              <div class="row">
+                <div class="col-12">
+                  <span class="text-step">Paso 1
+                    <span class="subtitle-step">
+                      Datos del usuario
+                    </span>
+                  </span>
+                </div>
+                <!-- formulario -->
+                <div class="col-12 my-3">
+                  <!-- inputs -->
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control input-style" id="name"
+                          placeholder="Nombre del colaborador">
+                        <label for="name">Nombre del colaborador</label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control input-style" id="unidad" placeholder="Unidad de negocio">
+                        <label for="unidad">Unidad de negocio</label>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 2 inputs -->
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div class="form-floating mb-3">
+                        <input type="email" class="form-control input-style" id="correo"
+                          placeholder="Correo electrónico">
+                        <label for="correo">Correo electrónico</label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control input-style" id="numEmpleado"
+                          placeholder="Número de empleado">
+                        <label for="numEmpleado">Número de empleado</label>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 3 inputs -->
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-floating mb-3">
+                            <input type="text" class="form-control input-style" id="area" placeholder="Área">
+                            <label for="area">Área</label>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-floating mb-3">
+                            <input type="text" class="form-control input-style" id="subdireccion"
+                              placeholder="Subdirección">
+                            <label for="subdireccion">Subdirección</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control input-style" id="puesto" placeholder="Puesto">
+                        <label for="puesto">Puesto</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- btn -->
+                  <div class="row">
+                    <div class="col-6 align-center my-3">
+                      <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;" type="checkbox" value="" id="check">
+                      <label class="form-check-label" for="check">
+                        He leído y estoy de acuerdo con los <br>
+                        <b class="text-info">
+                          Términos y condiciones y Aviso de privacidad
+                        </b>
+                      </label>
+                    </div>
+                    <div class="col-6 text-end my-3">
+                      <button matStepperNext type="button" class="btn btn-info btn-entrar">
+                        <span class="text-warning text-btn">
+                          Siguiente
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+              </mat-form-field> -->
+            </form>
+          </mat-step>
+          <!-- 2 paso -->
+          <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+              <div class="row">
+                <div class="col-12">
+                  <span class="text-step">Paso 2
+                    <span class="subtitle-step">
+                      Confirmación
+                    </span>
+                  </span>
+                </div>
+                <div class="col-12 my-3">
+                  <span class="parag-step">Te agradecemos tu registro.
+                    Ahora, por favor ingresa el código de confirmación enviado a tu correo eletrónico registrado.</span>
+                </div>
+                <!-- formulario -->
+                <div class="col-12 my-3">
+                  <div class="row">
+                    <div class="col-12 col-md-6 align-center">
+                      <div class="col-12">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control input-style" id="code"
+                            placeholder="Código de confirmación">
+                          <label for="code">Código de confirmación</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6 align-center ">
+                      <div class="text-end">
+                        <span class="quest-code">¿No recibiste el código?
+                          <span class="reenviar"> Reenviar</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <!-- btn -->
+                    <div class="col-12 text-end my-3">
+                      <button matStepperPrevious type="button" class="btn btn-info btn-entrar">
+                        <span class="text-warning text-btn">
+                          Regresar
+                        </span>
+                      </button>
+                      <button matStepperNext type="button" class="btn btn-info btn-entrar">
+                        <span class="text-warning text-btn">
+                          Siguiente
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <mat-form-field appearance="fill">
+                <mat-label>Address</mat-label>
+                <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+              </mat-form-field> -->
+              <!-- <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div> -->
+            </form>
+          </mat-step>
+          <!-- 3 paso  -->
+          <mat-step [stepControl]="thirdFormGroup">
+            <form [formGroup]="thirdFormGroup">
+              <div class="row">
+                <div class="col-12">
+                  <span class="text-step">Paso 3
+                    <span class="subtitle-step">
+                      ¡Listo!
+                    </span>
+                  </span>
+                </div>
+                <div class="col-12 my-3">
+                  <span class="parag-step">Te agradecemos tu registro.
+                    Ahora, por favor ingresa el código de confirmación enviado a tu correo eletrónico registrado.</span>
+                </div>
+                <div class="col-12 my-3">
+                  <div class="row">
+                    <!-- btn -->
+                    <div class="col-12 text-end my-3">
+                      <!-- <button matStepperPrevious type="button" class="btn btn-info btn-entrar">
+                        <span class="text-warning text-btn">
+                          Regresar
+                        </span>
+                      </button> -->
+                      <button (click)="login()" matStepperNext type="button" class="btn btn-info btn-entrar">
+                        <span class="text-warning text-btn">
+                          Entrar
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <mat-form-field appearance="fill">
+                <mat-label>Phone number</mat-label>
+                <input matInput formControlName="thirdCtrl" placeholder="Ex. 12345678" required>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div> -->
+            </form>
+          </mat-step>
+
+        </mat-horizontal-stepper>
+      </div>
+    </div>
+  </div>
+</div>
