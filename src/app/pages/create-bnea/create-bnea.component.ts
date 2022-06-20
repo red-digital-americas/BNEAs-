@@ -27,6 +27,11 @@ export class CreateBneaComponent implements OnInit {
   eightFormGroup: FormGroup;
   nineFormGroup: FormGroup;
   tenFormGroup: FormGroup;
+  elevenFormGroup: FormGroup;
+  twenFormGroup: FormGroup;
+  thirteenFormGroup: FormGroup;
+
+
 
   public beneficit: any[] = [];
   public team: any[] = [];
@@ -70,6 +75,15 @@ export class CreateBneaComponent implements OnInit {
       thirdCtrl: ["", Validators.required],
     });
     this.tenFormGroup = this._formBuilder.group({
+      thirdCtrl: ["", Validators.required],
+    });
+    this.elevenFormGroup = this._formBuilder.group({
+      thirdCtrl: ["", Validators.required],
+    });
+    this.twenFormGroup = this._formBuilder.group({
+      thirdCtrl: ["", Validators.required],
+    });
+    this.thirteenFormGroup = this._formBuilder.group({
       thirdCtrl: ["", Validators.required],
     });
   }
