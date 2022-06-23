@@ -1,0 +1,63 @@
+.hi {
+  font-family: Roboto;
+  color: rgba(29, 29, 27, 0.8);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.welcome {
+  font-family: Roboto;
+  color: rgba(0, 0, 0, 0.51);
+  text-align: right;
+  font-weight: 300;
+  font-size: 0.85rem;
+}
+
+.BNEAs {
+  font-family: Montserrat;
+  color: rgba(29, 29, 27, 0.8);
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.entry {
+  font-size: 1.35rem;
+  font-family: Roboto;
+  color: rgba(29, 29, 27, 0.8);
+}
+
+.create-BNEAs {
+  font-family: Montserrat;
+  font-size: 0.825rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.header-table {
+  color: #1d1d1b;
+  text-transform: uppercase;
+  font-family: Roboto;
+  text-align: left;
+}
+
+.id-table {
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #1d1d1b;
+}
+
+.info-table {
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.51);
+}

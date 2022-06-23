@@ -1,4 +1,12 @@
 <div class="main">
+  <div class="alert alert-danger alert-dismissible fade show mb-1" role="alert" *ngIf="errorLogin == true">
+    <strong>
+      El correo o la contraseña son incorrectas.
+    </strong>
+    <button (click)="close()" type="button" class="btn-close  text-white" aria-label="Close"></button>
+
+  </div>
+
   <div class="justify">
     <div class="container-logo">
       <img src="./assets/logo-login.png" alt="Rebel wings" />
@@ -37,7 +45,8 @@
 
       <div class="my-1 text-center ">
         <!-- [disabled]="email == '' || password == '' || disabled == true" -->
-        <button (click)="entrar()" type="button" class="btn btn-info btn-entrar">
+        <button [disabled]="email == '' || password == '' || disabled == true" (click)="entrar()" type="button"
+          class="btn btn-info btn-entrar">
           <!-- (click)="login(email, password)" -->
           <span class="text-warning text-btn">
             Entrar

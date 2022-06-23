@@ -16,14 +16,15 @@ export class LoginComponent implements OnInit {
   public dataProfile: any;
   public validar = false;
   public disabled = false;
+  public errorLogin = false;
 
   constructor(
     public router: Router,
     public service: LoginService,
     public _dialog: MatDialog
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   forgotPassword() {
     console.log("forgot password");
     this.router.navigateByUrl("recuperar-contrasena");
@@ -61,7 +62,22 @@ export class LoginComponent implements OnInit {
     );
   }
   entrar() {
-    this.router.navigateByUrl("dashboard");
+    if (this.email === 'admin') {
+      this.errorLogin = false;
+      this.router.navigateByUrl("bienvenido/1");
+
+    }
+    else if (this.email === 'usuario') {
+      this.errorLogin = false;
+      this.router.navigateByUrl("bienvenido/2");
+    }
+    else {
+      this.errorLogin = true;
+    }
+  }
+  close() {
+    this.errorLogin = false;
+
   }
 
   signUp() {

@@ -7,6 +7,7 @@ import { STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
 
 @Component({
   selector: "app-create-bnea",
+  moduleId: module.id,
   templateUrl: "./create-bnea.component.html",
   styleUrls: ["./create-bnea.component.css"],
   // providers: [
@@ -114,6 +115,6 @@ export class CreateBneaComponent implements OnInit {
     this.team.splice(index, 1);
   }
   save() {
-    this.router.navigateByUrl("Bnea-ready");
+    this.router.navigateByUrl("Bnea-ready/2");
   }
 }

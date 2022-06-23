@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from "app/core/services/login/login.service";
 import { DialogGeneralMessageComponent } from "app/pages/dialog-general/dialog-general-message/dialog-general-message.component";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
@@ -16,19 +16,38 @@ export class MessageCreateBneasComponent implements OnInit {
   public dataProfile: any;
   public validar = false;
   public disabled = false;
+  public profile;
+
   constructor(
     public router: Router,
     public service: LoginService,
+    public routerActive: ActivatedRoute,
     public _dialog: MatDialog
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.routerActive.snapshot.paramMap.get('id'));
+    this.profile = this.routerActive.snapshot.paramMap.get('id');
+
+  }
 
   close() {
-    this.router.navigateByUrl("dashboard");
+    if (this.profile == '1') {
+      this.router.navigateByUrl("Admin/list-bneas-admin");
+    }
+    else if (this.profile == '2') {
+      this.router.navigateByUrl("User/list-BNEAs");
+    }
   }
   entrar() {
-    this.router.navigateByUrl("dashboard");
+    // this.user = JSON.parse(localStorage.getItem("userData"));
+    // console.log("user", this.user);
+    if (this.profile == '1') {
+      this.router.navigateByUrl("Admin/list-bneas-admin");
+    }
+    else if (this.profile == '2') {
+      this.router.navigateByUrl("User/list-BNEAs");
+    }
   }
 
   signUp() {

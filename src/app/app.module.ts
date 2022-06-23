@@ -7,6 +7,7 @@ import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from "@angular/common/http";
 
 import { SidebarModule } from './sidebar/sidebar.module';
+import { SidebarUserModule } from './sidebar-user/sidebar-user.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { NavbarModule} from './shared/navbar/navbar.module';
 import { FixedPluginModule} from './shared/fixedplugin/fixedplugin.module';
@@ -15,6 +16,8 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
+
 import { LoginComponent } from './pages/auth/login/login.component';
 import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-password.component';
 import { WelcomeComponent } from './pages/auth/welcome/welcome.component';
@@ -40,6 +43,7 @@ import { MessageCreateBneasComponent } from './pages/message-create-bneas/messag
     DialogGeneralConfimationComponent,
     CreateUserComponent,
     MessageCreateBneasComponent,
+    UserLayoutComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -47,6 +51,7 @@ import { MessageCreateBneasComponent } from './pages/message-create-bneas/messag
       useHash: true
     }),
     SidebarModule,
+    SidebarUserModule,
     NavbarModule,
     ToastrModule.forRoot(),
     FooterModule,

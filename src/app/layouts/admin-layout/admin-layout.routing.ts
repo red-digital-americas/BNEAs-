@@ -1,23 +1,13 @@
 import { Routes } from "@angular/router";
 import { DashboardComponent } from "../../pages/dashboard/dashboard.component";
-import { UserComponent } from "../../pages/user/user.component";
-import { CreateBneaComponent } from "app/pages/create-bnea/create-bnea.component";
-import { CreateUserComponent } from "app/pages/auth/create-user/create-user.component";
-import { TableComponent } from "../../pages/table/table.component";
-import { TypographyComponent } from "../../pages/typography/typography.component";
-import { IconsComponent } from "../../pages/icons/icons.component";
-import { MapsComponent } from "../../pages/maps/maps.component";
-import { NotificationsComponent } from "../../pages/notifications/notifications.component";
-import { UpgradeComponent } from "../../pages/upgrade/upgrade.component";
+import { UserAdminComponent } from "app/pages/user-admin/user-admin.component"; 
+import { CreateBneaAdminComponent } from "app/pages/create-bnea-admin/create-bnea-admin.component"; 
+import { ListBneasAdminComponent } from "app/pages/list-bneas-admin/list-bneas-admin.component";
+
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
-  { path: "user", component: UserComponent },
-  { path: "create-BNEAs", component: CreateBneaComponent },
-  // { path: "table", component: TableComponent },
-  // { path: "typography", component: TypographyComponent },
-  // { path: "icons", component: IconsComponent },
-  // { path: "maps", component: MapsComponent },
-  // { path: "notifications", component: NotificationsComponent },
-  // { path: "upgrade", component: UpgradeComponent },
+  { path: "user-admin", component: UserAdminComponent },
+  { path: "list-bneas-admin", component: ListBneasAdminComponent },
+  { path: "create-BNEAs-admin", component: CreateBneaAdminComponent },
 ];
