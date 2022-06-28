@@ -5,9 +5,43 @@
   font-weight: 300;
   font-size: 0.85rem;
 }
+
 .Dash {
   font-family: Montserrat;
   color: rgba(29, 29, 27, 0.8);
   font-size: 1.5rem;
   font-weight: 900;
+}
+
+selectStyle {
+  border: 1px solid #fff !important;
+}
+
+.header-table {
+  color: #1d1d1b;
+  text-transform: uppercase;
+  font-family: Roboto;
+  text-align: left;
+}
+
+.id-table {
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #1d1d1b;
+}
+
+.info-table {
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.51);
 }

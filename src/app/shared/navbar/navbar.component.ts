@@ -82,6 +82,11 @@ export class NavbarComponent implements OnInit {
     }
     this.sidebarVisible = true;
   }
+  logout(){
+    console.log('cerrar session');
+    this.router.navigateByUrl('login');
+    // localStorage.removeItem('userData');
+  }
   // sidebarClose() {
   //   const html = document.getElementsByTagName("html")[0];
   //   const mainPanel = <HTMLElement>(

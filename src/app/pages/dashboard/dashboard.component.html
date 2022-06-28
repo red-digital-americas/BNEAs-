@@ -12,8 +12,7 @@
 <div class="row my-4">
   <div class="col-4">
     <div class="form-floating mb-3">
-      <select class="form-select input-style" id="tipoEmpresa" aria-label="Empresa"
-        style="    border: 1px solid #fff !important;">
+      <select class=" selectStyle form-select input-style" id="tipoEmpresa" aria-label="Empresa">
         <option selected>Elige una empresa</option>
         <option value="1">Empresa 1</option>
         <option value="2">Empresa 2</option>
@@ -24,8 +23,7 @@
   </div>
   <div class="col-4">
     <div class="form-floating mb-3">
-      <select class="form-select input-style" id="tipoArea" aria-label="Area"
-        style="    border: 1px solid #fff !important;">
+      <select class=" selectStyle form-select input-style" id="tipoArea" aria-label="Area">
         <option selected>Elige una area</option>
         <option value="1">Area 1</option>
         <option value="2">Area 2</option>
@@ -36,8 +34,7 @@
   </div>
   <div class="col-4">
     <div class="form-floating mb-3">
-      <select class="form-select input-style" id="subdireccion" aria-label="Subdirección"
-        style="    border: 1px solid #fff !important;">
+      <select class=" selectStyle form-select input-style" id="subdireccion" aria-label="Subdirección">
         <option selected>Elige una subdirección</option>
         <option value="1">subdireccion 1</option>
         <option value="2">subdireccion 2</option>
@@ -160,33 +157,16 @@
     </div>
   </div>
 </div>
-<!-- 1 grafica -->
-<div class="row">
-  <div class="col-md-12">
-    <div class="card ">
-      <div class="card-header ">
-        <h5 class="card-title">Users Behavior</h5>
-        <!-- <p class="card-category">24 Hours performance</p> -->
-      </div>
-      <div class="card-body ">
-        <canvas id=chartHours width="400" height="100"></canvas>
-      </div>
-      <!-- <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-history"></i> Updated 3 minutes ago
-        </div>
-      </div> -->
-    </div>
-  </div>
-</div>
 <!-- 2 grafica -->
 <div class="row">
   <div class="col-md-4">
     <div class="card ">
-      <div class="card-header ">
+      <ngx-charts-pie-chart [view]="view" [scheme]="colorScheme" [results]="single" [gradient]="gradient"
+        [legend]="showLegend" [legendPosition]="legendPosition" [labels]="showLabels" [doughnut]="isDoughnut"
+        (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+      </ngx-charts-pie-chart>
+      <!-- <div class="card-header ">
         <h5 class="card-title">Distribución de Beneficio</h5>
-        <!-- <p class="card-category">Last Campaign Performance</p> -->
       </div>
       <div class="card-body ">
         <canvas id="chartEmail"></canvas>
@@ -197,33 +177,86 @@
           <i class="fa fa-circle text-warning"></i> Read
           <i class="fa fa-circle text-danger"></i> Deleted
           <i class="fa fa-circle text-gray"></i> Unopened
-        </div>
-        <!-- <hr>
+        </div> -->
+      <!-- <hr>
         <div class="stats">
           <i class="fa fa-calendar"></i> Number of emails sent
         </div> -->
-      </div>
     </div>
   </div>
-  <div class="col-md-8">
-    <div class="card card-chart">
-      <div class="card-header">
-        <h5 class="card-title">Entradas por Area</h5>
-        <!-- <p class="card-category">Line Chart with Points</p> -->
+</div>
+<div class="col-md-8">
+  <div class="card card-chart">
+    <div class="card-header">
+      <h5 class="card-title">Entradas por Area</h5>
+      <!-- <p class="card-category">Line Chart with Points</p> -->
+    </div>
+    <div class="card-body">
+      <canvas id="speedChart" width="400" height="100"></canvas>
+    </div>
+    <div class="card-footer">
+      <div class="chart-legend">
+        <i class="fa fa-circle text-info"></i> Tesla Model S
+        <i class="fa fa-circle text-warning"></i> BMW 5 Series
       </div>
-      <div class="card-body">
-        <canvas id="speedChart" width="400" height="100"></canvas>
-      </div>
-      <div class="card-footer">
-        <div class="chart-legend">
-          <i class="fa fa-circle text-info"></i> Tesla Model S
-          <i class="fa fa-circle text-warning"></i> BMW 5 Series
-        </div>
-        <!-- <hr />
+      <!-- <hr />
         <div class="card-stats">
           <i class="fa fa-check"></i> Data information certified
         </div> -->
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <table class="table">
+            <thead class="header-table">
+              <tr>
+                <th scope="col-1"></th>
+                <th scope="col-1">ID</th>
+                <th scope="col-3">Area</th>
+                <th scope="col-1">Iniciativa</th>
+                <th scope="col-3">Nombre</th>
+                <th scope="col-1">XLS</th>
+                <th scope="col-1">DOC</th>
+                <th scope="col-1">Porcentage</th>
+                <!-- <th scope="col-2">Acciones</th> -->
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              <tr *ngFor="let item of [1,1,1,1,1,1,1,1]">
+                <td><span><img src="./assets/icon/id-coppel.svg" alt="Bootstrap" width="40" height="40"></span>
+                </td>
+                <th class="id-table" scope="row">B004230</th>
+                <td class="info-table">Operaciones / Aclaraciones</td>
+                <td class="info-table">RPA</td>
+                <td class="info-table">Fernanda Orea</td>
+                <td class="info-table"><span>
+                    <img src="./assets/icon/doc-excel.svg" alt="Bootstrap" width="40" height="40">
+                    <img src="./assets/icon/icon-pendiente.png" alt="Bootstrap" width="15" height="15">
+                  </span>
+                </td>
+                <td class="info-table"><span>
+                    <img src="./assets/icon/doc-word.svg" alt="Bootstrap" width="40" height="40">
+                    <img src="./assets/icon/icon_asisti.png" alt="Bootstrap" width="15" height="15">
+                  </span></td>
+                <td class="info-table">100%</td>
+                <!-- <td>
+                  <span class="m-2">
+                    <i style="cursor: pointer; font-size: 1.3rem;" class="bi bi-pencil text-info"></i>
+                  </span>
+                  <span class="m-2">
+                    <i style="cursor: pointer; font-size: 1.3rem;" class="bi bi-trash text-danger"></i>
+                  </span>
+                </td> -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+
     </div>
   </div>
 </div>
