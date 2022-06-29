@@ -1,0 +1,99 @@
+<div *ngIf="param">
+  <!-- header -->
+  <div class="row" id="idscroll">
+    <div class="col-10">
+      <h4 class="title-BNEAs" *ngIf="param.id == 0">Crear Usuario</h4>
+      <h4 class="title-BNEAs" *ngIf="param.id != 0">Actualizar Usuario</h4>
+    </div>
+    <div class="col-2 align-btn">
+      <i style="cursor: pointer; color: #cf3c4f" (click)="close()" class="nc-icon nc-simple-remove"></i>
+    </div>
+  </div>
+
+  <!-- body -->
+  <div class="row my-1">
+    <div class="col-12">
+      <div class="row">
+        <!-- formulario -->
+        <div class="col-12 my-3">
+          <!-- inputs -->
+          <div class="row">
+            <div class="col-12">
+              <div class="form-floating mb-3">
+                <select class=" selectStyle form-select input-style" id="tipoArea" aria-label="Area">
+                  <option selected>Elige un rol</option>
+                  <option value="1">Administrador</option>
+                  <option value="2">Usuario</option>
+                </select>
+                <label for="tipoArea">Rol</label>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control input-style" id="name" placeholder="Nombre del colaborador">
+                <label for="name">Nombre del colaborador</label>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control input-style" id="unidad" placeholder="Unidad de negocio">
+                <label for="unidad">Unidad de negocio</label>
+              </div>
+            </div>
+          </div>
+          <!-- 2 inputs -->
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control input-style" id="correo" placeholder="Correo electrónico">
+                <label for="correo">Correo electrónico</label>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control input-style" id="numEmpleado" placeholder="Número de empleado">
+                <label for="numEmpleado">Número de empleado</label>
+              </div>
+            </div>
+          </div>
+          <!-- 3 inputs -->
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control input-style" id="area" placeholder="Área">
+                    <label for="area">Área</label>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control input-style" id="puesto" placeholder="Puesto">
+                    <label for="puesto">Puesto</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control input-style" id="subdireccion" placeholder="Subdirección">
+                <label for="subdireccion">Subdirección</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- btn -->
+          <div class="row">
+            <div class="col-12 text-end mt-2">
+              <button (click)="save()" type="button" class="btn btn-info btn-entrar">
+                <span class="text-warning text-btn">
+                  Guardar
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

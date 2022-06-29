@@ -44,6 +44,7 @@ import { MessageCreateBneasComponent } from './pages/message-create-bneas/messag
     CreateUserComponent,
     MessageCreateBneasComponent,
     UserLayoutComponent,
+    DialogGeneralMessageComponent,
   ],
   imports: [
     BrowserAnimationsModule,

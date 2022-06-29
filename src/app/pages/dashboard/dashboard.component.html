@@ -159,14 +159,30 @@
 </div>
 <!-- 2 grafica -->
 <div class="row">
+  <div class="col-md-12">
+    <div class="card ">
+      <div class="card-header ">
+        <h5 class="card-title">Users Behavior</h5>
+        <p class="card-category">24 Hours performance</p>
+      </div>
+      <div class="card-body ">
+        <canvas id=chartHours width="400" height="100"></canvas>
+      </div>
+      <!-- <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-history"></i> Updated 3 minutes ago
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+<div class="row">
   <div class="col-md-4">
     <div class="card ">
-      <ngx-charts-pie-chart [view]="view" [scheme]="colorScheme" [results]="single" [gradient]="gradient"
-        [legend]="showLegend" [legendPosition]="legendPosition" [labels]="showLabels" [doughnut]="isDoughnut"
-        (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
-      </ngx-charts-pie-chart>
-      <!-- <div class="card-header ">
-        <h5 class="card-title">Distribución de Beneficio</h5>
+      <div class="card-header ">
+        <h5 class="card-title">Email Statistics</h5>
+        <p class="card-category">Last Campaign Performance</p>
       </div>
       <div class="card-body ">
         <canvas id="chartEmail"></canvas>
@@ -177,35 +193,37 @@
           <i class="fa fa-circle text-warning"></i> Read
           <i class="fa fa-circle text-danger"></i> Deleted
           <i class="fa fa-circle text-gray"></i> Unopened
-        </div> -->
-      <!-- <hr>
+        </div>
+        <!-- <hr>
         <div class="stats">
           <i class="fa fa-calendar"></i> Number of emails sent
         </div> -->
+      </div>
     </div>
   </div>
-</div>
-<div class="col-md-8">
-  <div class="card card-chart">
-    <div class="card-header">
-      <h5 class="card-title">Entradas por Area</h5>
-      <!-- <p class="card-category">Line Chart with Points</p> -->
-    </div>
-    <div class="card-body">
-      <canvas id="speedChart" width="400" height="100"></canvas>
-    </div>
-    <div class="card-footer">
-      <div class="chart-legend">
-        <i class="fa fa-circle text-info"></i> Tesla Model S
-        <i class="fa fa-circle text-warning"></i> BMW 5 Series
+  <div class="col-md-8">
+    <div class="card card-chart">
+      <div class="card-header">
+        <h5 class="card-title">NASDAQ: AAPL</h5>
+        <p class="card-category">Line Chart with Points</p>
       </div>
-      <!-- <hr />
+      <div class="card-body">
+        <canvas id="speedChart" width="400" height="100"></canvas>
+      </div>
+      <div class="card-footer">
+        <div class="chart-legend">
+          <i class="fa fa-circle text-info"></i> Tesla Model S
+          <i class="fa fa-circle text-warning"></i> BMW 5 Series
+        </div>
+        <!-- <hr />
         <div class="card-stats">
           <i class="fa fa-check"></i> Data information certified
         </div> -->
+      </div>
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -222,7 +240,7 @@
                 <th scope="col-1">XLS</th>
                 <th scope="col-1">DOC</th>
                 <th scope="col-1">Porcentage</th>
-                <!-- <th scope="col-2">Acciones</th> -->
+                <th scope="col-2">Acciones</th>
               </tr>
             </thead>
             <tbody class="text-center">
@@ -243,14 +261,14 @@
                     <img src="./assets/icon/icon_asisti.png" alt="Bootstrap" width="15" height="15">
                   </span></td>
                 <td class="info-table">100%</td>
-                <!-- <td>
+                <td>
                   <span class="m-2">
                     <i style="cursor: pointer; font-size: 1.3rem;" class="bi bi-pencil text-info"></i>
                   </span>
                   <span class="m-2">
                     <i style="cursor: pointer; font-size: 1.3rem;" class="bi bi-trash text-danger"></i>
                   </span>
-                </td> -->
+                </td>
               </tr>
             </tbody>
           </table>
