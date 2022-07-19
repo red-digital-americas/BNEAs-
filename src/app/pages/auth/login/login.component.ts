@@ -17,6 +17,10 @@ export class LoginComponent implements OnInit {
   public validar = false;
   public disabled = false;
   public errorLogin = false;
+  eyed = false;
+  public typeInput = 'password';
+
+
 
   constructor(
     public router: Router,
@@ -40,8 +44,8 @@ export class LoginComponent implements OnInit {
           console.log("data profile", this.dataProfile);
           this.disabled = false;
           localStorage.setItem("userData", JSON.stringify(this.dataProfile));
-
-          this.router.navigateByUrl("bienvenido");
+          this.entrar(this.dataProfile.roleId);
+          // this.router.navigateByUrl("bienvenido");
         } else {
           console.log("data error", resp);
           this.disabled = false;
@@ -61,13 +65,13 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-  entrar() {
-    if (this.email === 'admin') {
+  entrar( idRole) {
+    if (idRole === 20) {
       this.errorLogin = false;
       this.router.navigateByUrl("bienvenido/1");
 
     }
-    else if (this.email === 'usuario') {
+    else if (idRole !==  20 ) {
       this.errorLogin = false;
       this.router.navigateByUrl("bienvenido/2");
     }
@@ -82,5 +86,14 @@ export class LoginComponent implements OnInit {
 
   signUp() {
     this.router.navigateByUrl("create-user");
+  }
+  public viewPassword(type) {
+    if (type === true) {
+      this.typeInput = 'text';
+      this.eyed = true;
+    } else {
+      this.typeInput = 'password';
+      this.eyed = false;
+    }
   }
 }

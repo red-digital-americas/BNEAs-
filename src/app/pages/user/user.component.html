@@ -121,37 +121,37 @@
           <div class="row">
             <div class="col-md-12 pr-1">
               <div class="form-group">
-                <label>Unidad de negocio</label>
-                <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
+                <label for="unidadNegocio">Unidad de negocio</label>
+                <input name="unidadNegocio" id="unidadNegocio" type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-6 px-1">
+            <div class="col-md-12 px-1">
               <div class="form-group">
-                <label>Nombre</label>
-                <input type="text" class="form-control" placeholder="Username" value="Frida">
+                <label for="nombre">Nombre</label>
+                <input name="nombre" id="nombre" [(ngModel)]="data.name" type="text" class="form-control" placeholder="Username" >
               </div>
             </div>
-            <div class="col-md-6 pr-1">
+            <!-- <div class="col-md-6 pr-1">
               <div class="form-group">
                 <label>Apellido</label>
                 <input type="text" class="form-control" placeholder="Company" value="Ramirez">
               </div>
-            </div>
+            </div> -->
           </div>
           <div class="row">
             <div class="col-md-6 pl-1">
               <div class="form-group">
-                <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" placeholder="usuario">
+                <label for="email">Email</label>
+                <input name="email" disabled [(ngModel)]="data.email" type="email" class="form-control" placeholder="usuario" id="email">
               </div>
             </div>
             <div class="col-md-6 pl-1">
               <div class="form-group">
-                <label>Numero de empleado</label>
-                <input type="text" class="form-control" placeholder="Numero de empleado" value="A456">
+                <label for="empleado">Numero de empleado</label>
+                <input id="empleado" name="empleado" [(ngModel)]="data.noEmployee" type="text" class="form-control" placeholder="Numero de empleado">
               </div>
             </div>
 
@@ -159,20 +159,20 @@
           <div class="row">
             <div class="col-md-4 pr-1">
               <div class="form-group">
-                <label>Area</label>
-                <input type="text" class="form-control" placeholder="Area" value="Ventas">
+                <label for="area">Area</label>
+                <input id="area" name="area" type="text" class="form-control" placeholder="Area" value="Ventas">
               </div>
             </div>
             <div class="col-md-4 px-1">
               <div class="form-group">
-                <label>Subdirección</label>
-                <input type="text" class="form-control" placeholder="Subdirección" value="o.P">
+                <label for="subdireccion">Subdirección</label>
+                <input id="subdireccion" name="subdireccion" type="text" class="form-control" placeholder="Subdirección" value="o.P">
               </div>
             </div>
             <div class="col-md-4 pl-1">
               <div class="form-group">
-                <label>Puesto</label>
-                <input type="text" class="form-control" placeholder="Puesto" value="Operaciones">
+                <label for="puesto">Puesto</label>
+                <input id="puesto" name="puesto" [(ngModel)]="data.employeePosition" type="text" class="form-control" placeholder="Puesto" >
               </div>
             </div>
 
@@ -187,9 +187,17 @@
             </div>
           </div> -->
           <div class="row">
-            <div class="update ml-auto mr-auto text-end">
-              <button type="submit" class="btn btn-primary btn-round">Actualizar</button>
+            <div class="col-12 col-md-6 change_pass">
+              <div (click)="changePassword(data.email)">
+                <span class="text-primary">Cambiar Contraseña</span>
+              </div>
             </div>
+            <div class="col-12 col-md-6">
+              <div class="update ml-auto mr-auto text-end">
+                <button  (click)="update()" type="submit" class="btn btn-primary btn-round">Actualizar</button>
+              </div>
+            </div>
+
           </div>
         </form>
       </div>

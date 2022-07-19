@@ -12,6 +12,9 @@ import { CreateBneaComponent } from '../../pages/create-bnea/create-bnea.compone
 import { UserComponent } from '../../pages/user/user.component';
 import { ListBNEASComponent } from 'app/pages/list-bneas/list-bneas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DialogChangePasswordComponent } from 'app/pages/dialog/dialog-change-password/dialog-change-password.component';
+import { MatDialogModule } from "@angular/material/dialog";
+ 
 
 
 @NgModule({
@@ -24,11 +27,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatDialogModule,
   ],
   declarations: [
     UserComponent,
     CreateBneaComponent,
     ListBNEASComponent,
+    DialogChangePasswordComponent,
   ],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

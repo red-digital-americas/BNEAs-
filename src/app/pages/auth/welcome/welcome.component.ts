@@ -9,13 +9,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class WelcomeComponent implements OnInit {
   public interval: any;
   public profile;
-  // public user;
+  public user;
+
   constructor(public router: Router, public routerActive: ActivatedRoute,) { }
 
   ngOnInit() {
     console.log(this.routerActive.snapshot.paramMap.get('id'));
     this.profile = this.routerActive.snapshot.paramMap.get('id');
-
+    this.user = JSON.parse(localStorage.getItem('userData'));
 
     // this.user = JSON.parse(localStorage.getItem("userData"));
     // console.log("user", this.user);

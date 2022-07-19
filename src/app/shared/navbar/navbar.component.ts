@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.user = JSON.parse(localStorage.getItem("userData"));
+    this.user = JSON.parse(localStorage.getItem("userData"));
     // console.log('user', this.user);
 
     this.listTitles = ROUTES.filter((listTitle) => listTitle);
@@ -85,7 +85,7 @@ export class NavbarComponent implements OnInit {
   logout(){
     console.log('cerrar session');
     this.router.navigateByUrl('login');
-    // localStorage.removeItem('userData');
+    localStorage.removeItem('userData');
   }
   // sidebarClose() {
   //   const html = document.getElementsByTagName("html")[0];

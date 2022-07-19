@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main" *ngIf="user" >
   <div class="justify">
     <div class="row">
       <!-- logo -->
@@ -21,8 +21,8 @@
       </div>
       <div class="col-12 logo">
         <span class="nameProfile">
-          <b *ngIf="profile == '1'"> Administrador </b>
-        <b *ngIf="profile == '2'"> Usuario </b></span>
+          <b *ngIf="user == '20'"> Administrador </b>
+        <b *ngIf="user != '20'"> {{user.name}} </b></span>
       </div>
     </div>
   </div>
