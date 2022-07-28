@@ -19,6 +19,10 @@ import { DialogGeneralMessageComponent } from "../dialog-general/dialog-general-
 export class UserComponent implements OnInit {
   public data: DataModel = new DataModel();
   public user;
+  public catBussinessUnit;
+  public catArea;
+  public catSubDivision;
+
 
   constructor(
     public router: Router,
@@ -27,6 +31,11 @@ export class UserComponent implements OnInit {
     public _dialog: MatDialog
   ) { }
   ngOnInit() {
+    this.catalogsBussiness();
+    this.catalogsArea();
+    this.catalogsSubDireccion();
+
+
     this.user = JSON.parse(localStorage.getItem('userData'));
     this.service
       .serviceGeneralGet(`User/${this.user.id}`)
@@ -37,6 +46,36 @@ export class UserComponent implements OnInit {
         }
       });
     console.log('sin data');
+  }
+  catalogsBussiness() {
+    this.service
+      .serviceGeneralGet(`CatBusinessUnit`)
+      .subscribe((resp) => {
+        if (resp.success) {
+          this.catBussinessUnit = resp.result;
+          console.log('bussiness', this.catBussinessUnit);
+        }
+      });
+  }
+  catalogsArea() {
+    this.service
+      .serviceGeneralGet(`CatArea`)
+      .subscribe((resp) => {
+        if (resp.success) {
+          this.catArea = resp.result;
+          console.log('area', this.catArea);
+        }
+      });
+  }
+  catalogsSubDireccion() {
+    this.service
+      .serviceGeneralGet(`CatSubDivision`)
+      .subscribe((resp) => {
+        if (resp.success) {
+          this.catSubDivision = resp.result;
+          console.log('area', this.catSubDivision);
+        }
+      });
   }
   changePassword(email) {
     console.log('email', email);
@@ -83,12 +122,20 @@ export class UserComponent implements OnInit {
 
 
   }
+  getArea(id) {
+    this.catArea.forEach(element => {
+      if (element.idBusinessUnit == id) {
+        return element.area;
+      }
+    });
+  }
   update() {
-    if(this.data.token === null){
+    this.data.password == '';
+    if (this.data.token === null) {
       this.data.token = '';
     }
     this.service
-      .serviceGeneralPut(`User/${this.user.id}`, this.data)
+      .serviceGeneralPut('User/Edit_user', this.data)
       .subscribe((resp) => {
         if (resp.success) {
           this.data = resp.result;

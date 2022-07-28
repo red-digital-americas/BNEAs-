@@ -6,8 +6,8 @@
       </div>
       <div class="card-body">
         <div class="author">
-          <img class="avatar border-gray" src="assets/img/fridaR.jpg" alt="...">
-          <h5 class="title">Frida Ramirez</h5>
+          <img class="avatar border-gray" src="assets/image/avatar.jpg" alt="...">
+          <h5 class="title">{{data.name}}</h5>
         </div>
         <p class="description text-center">
           "El fracaso es aveces más
@@ -120,9 +120,14 @@
         <form>
           <div class="row">
             <div class="col-md-12 pr-1">
-              <div class="form-group">
+              <div class="form-floating mb-3">
+                <select name="unidadNegocio" class="form-select input-style" id="unidadNegocio"
+                  aria-label="Tipo de BNEA" [(ngModel)]="data.idBusinessUnit"
+                  style="border: 1px solid #fff !important;">
+                  <option selected>Elige una tipo</option>
+                  <option *ngFor="let item of catBussinessUnit" [value]="item.id">{{item.businessUnit}}</option>
+                </select>
                 <label for="unidadNegocio">Unidad de negocio</label>
-                <input name="unidadNegocio" id="unidadNegocio" type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
               </div>
             </div>
           </div>
@@ -131,7 +136,8 @@
             <div class="col-md-12 px-1">
               <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input name="nombre" id="nombre" [(ngModel)]="data.name" type="text" class="form-control" placeholder="Username" >
+                <input name="nombre" id="nombre" [(ngModel)]="data.name" type="text" class="form-control"
+                  placeholder="Username">
               </div>
             </div>
             <!-- <div class="col-md-6 pr-1">
@@ -145,34 +151,47 @@
             <div class="col-md-6 pl-1">
               <div class="form-group">
                 <label for="email">Email</label>
-                <input name="email" disabled [(ngModel)]="data.email" type="email" class="form-control" placeholder="usuario" id="email">
+                <input name="email" disabled [(ngModel)]="data.email" type="email" class="form-control"
+                  placeholder="usuario" id="email">
               </div>
             </div>
             <div class="col-md-6 pl-1">
               <div class="form-group">
                 <label for="empleado">Numero de empleado</label>
-                <input id="empleado" name="empleado" [(ngModel)]="data.noEmployee" type="text" class="form-control" placeholder="Numero de empleado">
+                <input id="empleado" name="empleado" [(ngModel)]="data.noEmployee" type="text" class="form-control"
+                  placeholder="Numero de empleado">
               </div>
             </div>
 
           </div>
           <div class="row">
             <div class="col-md-4 pr-1">
-              <div class="form-group">
+              <div class="form-floating mb-3">
+                <select name="area" class="form-select input-style" id="area" aria-label="Tipo de Area"
+                  [(ngModel)]="data.idArea" style="border: 1px solid #fff !important;">
+                  <option selected>Elige una Area</option>
+                  <option *ngFor="let item of catArea" [value]="item.id">{{item.area}}</option>
+                </select>
                 <label for="area">Area</label>
-                <input id="area" name="area" type="text" class="form-control" placeholder="Area" value="Ventas">
               </div>
             </div>
             <div class="col-md-4 px-1">
-              <div class="form-group">
-                <label for="subdireccion">Subdirección</label>
-                <input id="subdireccion" name="subdireccion" type="text" class="form-control" placeholder="Subdirección" value="o.P">
+              <div class="form-floating mb-3">
+                <select name="Subdirección" class="form-select input-style" id="Subdirección"
+                  aria-label="Tipo de Subdirección" [(ngModel)]="data.idSubDivision"
+                  style="border: 1px solid #fff !important;">
+                  <option selected>Elige una Subdirección</option>
+                  <option *ngFor="let item of catSubDivision" [value]="item.id">{{item.subDivision}}</option>
+
+                </select>
+                <label for="Subdirección">Subdirección</label>
               </div>
             </div>
             <div class="col-md-4 pl-1">
               <div class="form-group">
                 <label for="puesto">Puesto</label>
-                <input id="puesto" name="puesto" [(ngModel)]="data.employeePosition" type="text" class="form-control" placeholder="Puesto" >
+                <input id="puesto" name="puesto" [(ngModel)]="data.employeePosition" type="text" class="form-control"
+                  placeholder="Puesto">
               </div>
             </div>
 
@@ -194,7 +213,7 @@
             </div>
             <div class="col-12 col-md-6">
               <div class="update ml-auto mr-auto text-end">
-                <button  (click)="update()" type="submit" class="btn btn-primary btn-round">Actualizar</button>
+                <button (click)="update()" type="submit" class="btn btn-primary btn-round">Actualizar</button>
               </div>
             </div>
 

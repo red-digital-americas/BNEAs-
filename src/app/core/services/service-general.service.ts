@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
-import { environment } from 'environments/environment'; 
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -45,4 +45,20 @@ export class ServiceGeneralService {
   public serviceGeneralDelete(url: string): Observable<any> {
     return this.http.delete(this.apiURL + url, { headers: this.headers });
   }
+  public getCatalogueFrom(catalogo_selected, params: string = ''): any {
+    const query = this.http.get(this.apiURL + 'Catalogue/' + catalogo_selected + params, { headers: this.headers }),
+      query_on = new Promise((resolve) => {
+        query.subscribe((response) => {
+          resolve(response);
+          //console.log(resolve(response));
+        }, (error) => {
+          resolve(error);
+        });
+      });
+    return query_on.then((result: any) => {
+      if (result.success) return result.result;
+      else return 'Error al pedir el catalogo.';
+    });
+  }
+
 }

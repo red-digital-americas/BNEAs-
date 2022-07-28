@@ -20,12 +20,12 @@ export class WelcomeComponent implements OnInit {
 
     // this.user = JSON.parse(localStorage.getItem("userData"));
     // console.log("user", this.user);
-    if (this.profile == '1') {
+    if (this.profile == '2') {
       setTimeout(() => {
         this.router.navigateByUrl("Admin");
       }, 2000);
     }
-    else if (this.profile == '2') {
+    else if (this.profile == '1') {
       setTimeout(() => {
         this.router.navigateByUrl("User");
       }, 2000);

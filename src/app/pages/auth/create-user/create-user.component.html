@@ -41,15 +41,20 @@
                   <div class="row">
                     <div class="col-12 col-md-6">
                       <div class="form-floating mb-3">
-                        <input type="text" class="form-control input-style" id="name"
+                        <input formControlName="name" type="text" class="form-control input-style" id="name"
                           placeholder="Nombre del colaborador">
                         <label for="name">Nombre del colaborador</label>
                       </div>
                     </div>
                     <div class="col-12 col-md-6">
                       <div class="form-floating mb-3">
-                        <input type="text" class="form-control input-style" id="unidad" placeholder="Unidad de negocio">
-                        <label for="unidad">Unidad de negocio</label>
+                        <select type="number" formControlName="idBusinessUnit" name="unidadNegocio"
+                          class="form-select input-style form-control select-step" id="unidadNegocio"
+                          aria-label="Unidad de Negocio">
+                          <option selected>Elige una tipo</option>
+                          <option *ngFor="let item of catBussinessUnit" [value]="item.id">{{item.businessUnit}}</option>
+                        </select>
+                        <label for="unidadNegocio">Unidad de negocio</label>
                       </div>
                     </div>
                   </div>
@@ -57,16 +62,16 @@
                   <div class="row">
                     <div class="col-12 col-md-6">
                       <div class="form-floating mb-3">
-                        <input type="email" class="form-control input-style" id="correo"
+                        <input formControlName="email" type="email" class="form-control input-style" id="correo"
                           placeholder="Correo electrónico">
                         <label for="correo">Correo electrónico</label>
                       </div>
                     </div>
                     <div class="col-12 col-md-6">
                       <div class="form-floating mb-3">
-                        <input type="text" class="form-control input-style" id="numEmpleado"
-                          placeholder="Número de empleado">
-                        <label for="numEmpleado">Número de empleado</label>
+                        <input formControlName="password" type="password" class="form-control input-style" id="Contraseña"
+                          placeholder="Contraseña">
+                        <label for="Contraseña">Contraseña</label>
                       </div>
                     </div>
                   </div>
@@ -76,32 +81,56 @@
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <div class="form-floating mb-3">
-                            <input type="text" class="form-control input-style" id="area" placeholder="Área">
-                            <label for="area">Área</label>
+                            <select type="number" formControlName="idArea" name="area"
+                              class="form-select input-style form-control select-step" id="area" aria-label="Area">
+                              <option selected>Elige una Area</option>
+                              <option *ngFor="let item of catArea" [value]="item.id">{{item.area}}</option>
+                            </select>
+                            <label for="area">Area</label>
                           </div>
                         </div>
                         <div class="col-12 col-md-6">
                           <div class="form-floating mb-3">
-                            <input type="text" class="form-control input-style" id="subdireccion"
-                              placeholder="Subdirección">
-                            <label for="subdireccion">Subdirección</label>
+                            <select type="number" formControlName="idSubDivision" name="Subdirección"
+                              class="form-select input-style select-step form-control" id="Subdirección"
+                              aria-label="Tipo de Subdirección">
+                              <option selected>Elige una Subdirección</option>
+                              <option *ngFor="let item of catSubDivision" [value]="item.id">{{item.subDivision}}
+                              </option>
+
+                            </select>
+                            <label for="Subdirección">Subdirección</label>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="col-12 col-md-6">
-                      <div class="form-floating mb-3">
-                        <input type="text" class="form-control input-style" id="puesto" placeholder="Puesto">
-                        <label for="puesto">Puesto</label>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-floating mb-3">
+                            <input formControlName="employeePosition" type="text" class="form-control input-style"
+                              id="puesto" placeholder="Puesto">
+                            <label for="puesto">Puesto</label>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="form-floating mb-3">
+                            <input formControlName="noEmployee" type="text" class="form-control input-style"
+                              id="numEmpleado" placeholder="Número de empleado">
+                            <label for="numEmpleado">Número de empleado</label>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
 
+
                   <!-- btn -->
                   <div class="row">
                     <div class="col-6 align-center my-3">
-                      <input class="form-check-input" style="font-size: 2rem; margin-top: 0.1rem;margin-right: 1rem;" type="checkbox" value="" id="check">
-                      <label class="form-check-label" for="check">
+                      <input name="terminos" formControlName="term" class="form-check-input" type="checkbox"
+                        value="false" id="check">
+                      <label class="form-check-label select-step" for="check">
                         He leído y estoy de acuerdo con los <br>
                         <b class="text-info">
                           Términos y condiciones y Aviso de privacidad
@@ -109,7 +138,8 @@
                       </label>
                     </div>
                     <div class="col-6 text-end my-3">
-                      <button matStepperNext type="button" class="btn btn-info btn-entrar">
+                      <button name="guardar" (click)="step1()" [disabled]="!firstFormGroup.valid" matStepperNext
+                        type="button" class="btn btn-info btn-entrar">
                         <span class="text-warning text-btn">
                           Siguiente
                         </span>
@@ -145,8 +175,8 @@
                     <div class="col-12 col-md-6 align-center">
                       <div class="col-12">
                         <div class="form-floating mb-3">
-                          <input type="text" class="form-control input-style" id="code"
-                            placeholder="Código de confirmación">
+                          <input (keyup)="getCodeValid()" formControlName="code" type="text"
+                            class="form-control input-style" id="code" placeholder="Código de confirmación">
                           <label for="code">Código de confirmación</label>
                         </div>
                       </div>
@@ -154,7 +184,7 @@
                     <div class="col-12 col-md-6 align-center ">
                       <div class="text-end">
                         <span class="quest-code">¿No recibiste el código?
-                          <span class="reenviar"> Reenviar</span>
+                          <span (click)="resentCode()" class="reenviar"> Reenviar</span>
                         </span>
                       </div>
                     </div>
@@ -167,7 +197,8 @@
                           Regresar
                         </span>
                       </button>
-                      <button matStepperNext type="button" class="btn btn-info btn-entrar">
+                      <button *ngIf="secondFormGroup.value.validCode != '' || secondFormGroup.value.validCode == undefined" matStepperNext type="button"
+                        class="btn btn-info btn-entrar">
                         <span class="text-warning text-btn">
                           Siguiente
                         </span>
@@ -199,7 +230,8 @@
                 </div>
                 <div class="col-12 my-3">
                   <span class="parag-step">Te agradecemos tu registro.
-                    Ahora, por favor ingresa el código de confirmación enviado a tu correo eletrónico registrado.</span>
+                    Ahora ya podras iniciar sesión.</span>
+                  <br><br><br>
                 </div>
                 <div class="col-12 my-3">
                   <div class="row">

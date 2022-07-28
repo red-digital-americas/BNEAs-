@@ -66,12 +66,12 @@ export class LoginComponent implements OnInit {
     );
   }
   entrar( idRole) {
-    if (idRole === 20) {
+    if (idRole === 1) {
       this.errorLogin = false;
       this.router.navigateByUrl("bienvenido/1");
 
     }
-    else if (idRole !==  20 ) {
+    else if (idRole ===  2) {
       this.errorLogin = false;
       this.router.navigateByUrl("bienvenido/2");
     }

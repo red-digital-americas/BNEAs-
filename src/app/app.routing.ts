@@ -8,6 +8,8 @@ import { WelcomeComponent } from "./pages/auth/welcome/welcome.component";
 import { CreateUserComponent } from "./pages/auth/create-user/create-user.component";
 import { MessageCreateBneasComponent } from "./pages/message-create-bneas/message-create-bneas.component";
 export const AppRoutes: Routes = [
+  // { path: '**', redirectTo: 'login', pathMatch: 'full' },
+
   {
     path: "login",
     redirectTo: "login",

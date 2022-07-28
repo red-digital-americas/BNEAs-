@@ -1,6 +1,6 @@
 .main {
   /* background-color: #fafafa; */
-  background-image: url('./../../../../assets/image/background-fafafa.png');
+  background-image: url("./../../../../assets/image/background-fafafa.png");
   /* background-image: linear-gradient(to top, #faeafa, #fe7afa) !important; */
   width: 100%;
   width: 100%;
@@ -129,7 +129,13 @@
   margin-top: 8px;
 }
 
-.mat-stepper-horizontal .mat-horizontal-stepper-header .mat-step-header .mat-step-label {
+.mat-stepper-horizontal
+  .mat-horizontal-stepper-header
+  .mat-step-header
+  .mat-step-label {
   min-width: 0px;
   color: red;
+}
+.select-step {
+  border: 1px solid #fff !important;
 }
