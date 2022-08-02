@@ -11,7 +11,7 @@ export const AppRoutes: Routes = [
   // { path: '**', redirectTo: 'login', pathMatch: 'full' },
 
   {
-    path: "login",
+    path: "",
     redirectTo: "login",
     pathMatch: "full",
   },
@@ -24,11 +24,11 @@ export const AppRoutes: Routes = [
   { path: "create-user", component: CreateUserComponent },
   { path: "Bnea-ready/:id", component: MessageCreateBneasComponent },
   {
-    path: "",
+    path: "Admin",
     component: AdminLayoutComponent,
     children: [
       {
-        path: "Admin",
+        path: "",
         loadChildren:
           "./layouts/admin-layout/admin-layout.module#AdminLayoutModule",
         // ./layouts/admin-layout/admin-layout.module#AdminLayoutModule
@@ -37,11 +37,11 @@ export const AppRoutes: Routes = [
     ],
   },
   {
-    path: "",
+    path: "User",
     component: UserLayoutComponent,
     children: [
       {
-        path: "User",
+        path: "",
         loadChildren:
           "./layouts/user-layout/user-layout.module#UserLayoutModule",
       },
