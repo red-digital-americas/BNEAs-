@@ -14,33 +14,30 @@
   </div>
   <!-- filtros -->
   <div class="row my-4">
+
     <div class="col-4">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control input-style" id="sear" placeholder="Buscar">
-        <label for="sear">Buscar</label>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="form-floating mb-3">
-        <select class=" selectStyle form-select input-style" id="tipoArea" aria-label="Area">
+        <select [(ngModel)]="area" (ngModelChange)="getData(area, subdireccion)"  class="selectStyle form-select input-style" id="tipoArea" aria-label="Area">
           <option selected>Elige una area</option>
-          <option value="1">Area 1</option>
-          <option value="2">Area 2</option>
-          <option value="3">Area 3</option>
+          <option *ngFor="let item of catArea" [value]="item.id">{{item.area}}</option>
         </select>
         <label for="tipoArea">Area</label>
       </div>
     </div>
     <div class="col-4">
       <div class="form-floating mb-3">
-        <select class=" selectStyle form-select input-style" id="subdireccion" aria-label="Subdirección">
+        <select [(ngModel)]="subdireccion" (ngModelChange)="getData(area, subdireccion)" class=" selectStyle form-select input-style" id="subdireccion" aria-label="Subdirección">
           <option selected>Elige una subdirección</option>
-          <option value="1">subdireccion 1</option>
-          <option value="2">subdireccion 2</option>
-          <option value="3">subdireccion 3</option>
+          <option *ngFor="let item of catSubdireccion" [value]="item.id">{{item.subDivision}}</option>
         </select>
         <label for="subdireccion">Subdirección</label>
       </div>
+    </div>
+    <div class="col-4">
+      <!-- <div class="form-floating mb-3">
+        <input type="text" class="form-control input-style" id="sear" placeholder="Buscar">
+        <label for="sear">Buscar</label>
+      </div> -->
     </div>
   </div>
   <div class="row mt-3 mb-1">
@@ -56,7 +53,7 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container" *ngIf="data">
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -75,20 +72,20 @@
               </tr>
             </thead>
             <tbody class="text-center">
-              <tr *ngFor="let item of [1,1,1,1,1,1]">
+              <tr *ngFor="let item of data">
                 <td><span><img src="./assets/icon/id-coppel.svg" alt="Bootstrap" width="40" height="40"></span>
                 </td>
-                <th class="id-table" scope="row">Frida Ramirez</th>
-                <td class="info-table">frida@usuario.com</td>
-                <td class="info-table">A23F1</td>
-                <td class="info-table">Recursos Humanos</td>
-                <td class="info-table">Nomina</td>
-                <td class="info-table">Test</td>
+                <th class="id-table" scope="row">{{item.name}}</th>
+                <td class="info-table">{{item.email}}</td>
+                <td class="info-table">{{item.noEmployee}}</td>
+                <td class="info-table">{{getNameArea(item.idArea)}}</td>
+                <td class="info-table">{{getNameSubdireccion(item.idSubDivision)}}</td>
+                <td class="info-table">{{item.employeePosition}}</td>
                 <td>
-                  <span class="m-2" (click)="createUser(1)">
+                  <span class="m-2" (click)="createUser(item.id)">
                     <i style="cursor: pointer; font-size: 1.3rem;" class="bi bi-pencil text-info"></i>
                   </span>
-                  <span class="m-2" (click)="createUser(1)">
+                  <span class="m-2" (click)="deleteUser(item.id)">
                     <i style="cursor: pointer; font-size: 1.3rem;" class="bi bi-trash text-danger"></i>
                   </span>
                 </td>

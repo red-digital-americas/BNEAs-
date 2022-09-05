@@ -11,6 +11,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "user-admin", component: UserAdminComponent },
   { path: "list-bneas-admin", component: ListBneasAdminComponent },
-  { path: "create-BNEAs-admin", component: CreateBneaAdminComponent },
+  { path: "create-BNEAs-admin/:id", component: CreateBneaAdminComponent },
   { path: "list-user", component: UserListComponent },
 ];

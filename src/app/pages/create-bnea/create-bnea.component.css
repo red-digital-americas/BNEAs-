@@ -52,6 +52,10 @@
   color: rgba(0, 0, 0, 0.51);
 }
 
+.select-step {
+  border: 1px solid #fff !important;
+}
+
 .parag-step {
   font-family: Roboto;
   font-size: 0.975rem;
@@ -96,7 +100,7 @@
 
 .lab-span {
   font-family: Roboto;
-  font-size: .975rem;
+  font-size: 0.975rem;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
@@ -107,7 +111,7 @@
 
 .add-beneficit {
   font-family: Montserrat;
-  font-size: .76rem;
+  font-size: 0.76rem;
   font-weight: 700;
   font-stretch: normal;
   font-style: normal;
@@ -159,7 +163,6 @@
   line-height: normal;
   letter-spacing: normal;
   color: rgba(0, 0, 0, 0.51);
-
 }
 
 .label-check {
@@ -175,4 +178,13 @@
 
 .align-self-center {
   align-self: center;
+  align-items: center;
+}
+.textarea-h {
+  height: 8.2rem;
+}
+.checkbox-style {
+  font-size: 2rem;
+  margin-top: 0.1rem;
+  margin-right: 1rem;
 }

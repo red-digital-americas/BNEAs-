@@ -43,7 +43,7 @@ export class ListBNEASComponent implements OnInit {
   }
   getData() {
     this.service
-      .serviceGeneralGet(`Bnea/GetAllBneasDashAdmin/${this.user.id}`)
+      .serviceGeneralGet(`Bnea/GetAllBneasByUser?idUser=${this.user.id}`)
       .subscribe((resp) => {
         if (resp.success) {
           this.data = resp.result;
@@ -51,10 +51,105 @@ export class ListBNEASComponent implements OnInit {
         }
       });
   }
-  createBNEAs() {
-    console.log('Create BNEAs');
-    this.router.navigateByUrl('User/create-BNEAs');
+  pdf(id) {
+    console.log('id', id);
+    let newVariable: any = window.navigator;
+    const filename = `BNEA B00${id}`;
+    this.service
+      .serviceGeneralGet(`Bnea/GetPDF/${id}`)
+      .subscribe((resp) => {
+        if (resp.success) {
+          console.log('resp doc', resp.message);
+
+          const byteArray = new Uint8Array(
+            atob(resp.message)
+              .split("")
+              .map(char => char.charCodeAt(0))
+          );
+          const file = new Blob([byteArray], { type: "application/pdf" });
+          const fileURL = URL.createObjectURL(file);
+          if (newVariable && newVariable.msSaveOrOpenBlob) {
+            newVariable.msSaveOrOpenBlob(file, filename);
+          } else {
+
+            // Construct the 'a' element
+            let link = document.createElement("a");
+            link.download = filename;
+            link.target = "_blank";
+
+            // Construct the URI
+            link.href = fileURL;
+            document.body.appendChild(link);
+            link.click();
+
+            // Cleanup the DOM
+            document.body.removeChild(link);
+          }
+        }
+      });
+
+
   }
+  excel(id) {
+    console.log('id', id);
+    let newVariable: any = window.navigator;
+    const filename = `BNEA B00${id}`;
+    this.service
+      .serviceGeneralGet(`Bnea/GetReporte/${id}`)
+      .subscribe((resp) => {
+        if (resp.success) {
+          console.log('resp doc', resp.message);
+
+          const byteArray = new Uint8Array(
+            atob(resp.message)
+              .split("")
+              .map(char => char.charCodeAt(0))
+          );
+          const file = new Blob([byteArray], { type: "application/xls" });
+          const fileURL = URL.createObjectURL(file);
+          if (newVariable && newVariable.msSaveOrOpenBlob) {
+            newVariable.msSaveOrOpenBlob(file, filename);
+          } else {
+
+            // Construct the 'a' element
+            let link = document.createElement("a");
+            link.download = filename;
+            link.target = "_blank";
+
+            // Construct the URI
+            link.href = fileURL;
+            document.body.appendChild(link);
+            link.click();
+
+            // Cleanup the DOM
+            document.body.removeChild(link);
+          }
+        }
+      });
+
+
+  }
+  deleteBNEA(id) {
+    this.service
+      .serviceGeneralDelete(`Bnea/DeleteBnea?idBnea=${id}`)
+      .subscribe((resp) => {
+        if (resp.success) {
+          this.getData();
+          const dialog2 = this._dialog.open(DialogGeneralMessageComponent, {
+            data: {
+              header: "Exito",
+              body: 'Se elimino correctamente el BNEA',
+            },
+            width: "350px",
+          });
+        }
+      });
+  }
+  createBNEAs(id) {
+    console.log('Create BNEAs');
+    this.router.navigateByUrl(`User/create-BNEAs/${id}`);
+  }
+
   getName(id) {
     if (id != null) {
       id = parseInt(id);

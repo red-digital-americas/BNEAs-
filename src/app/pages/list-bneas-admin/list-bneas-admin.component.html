@@ -15,22 +15,20 @@
   </div>
   <!-- filtros -->
   <div class="row my-4">
-    <div class="col-4">
+    <!-- <div class="col-4">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control input-style" id="idBnea"
-          placeholder="Buscar">
+        <input type="text" class="form-control input-style" id="idBnea" placeholder="Buscar">
         <label for="idBnea">Buscar (id, nombre)</label>
       </div>
-    </div>
+    </div> -->
     <div class="col-4">
       <div class="form-floating mb-3">
-        <select class=" selectStyle form-select input-style" id="tipoArea" aria-label="Area">
-          <option selected>Elige una area</option>
-          <option value="1">Area 1</option>
-          <option value="2">Area 2</option>
-          <option value="3">Area 3</option>
+        <select [(ngModel)]="idEmpresa" (ngModelChange)="getData(idEmpresa)" class="selectStyle form-select input-style"
+          id="tipoEmpresa" aria-label="Empresa">
+          <option selected>Elige una Empresa</option>
+          <option *ngFor="let item of catEmpresa" [value]="item.id">{{item.empresa}}</option>
         </select>
-        <label for="tipoArea">Area</label>
+        <label for="tipoEmpresa">Empresa</label>
       </div>
     </div>
     <div class="col-4">
@@ -50,7 +48,7 @@
       <span class="entry">Mis entradas</span>
     </div>
     <div class="col-6 text-end">
-      <span (click)="createBNEAs()" class="create-BNEAs">Crear nuevo BNEA
+      <span (click)="createBNEAs(0)" class="create-BNEAs">Crear nuevo BNEA
         <button title="Crear BNEAs" class="btn btn-sm btn-info btn-round btn-icon">
           <i style="cursor: pointer; font-size: 1rem;" class="bi bi-plus text-warning"></i>
         </button>
@@ -58,7 +56,7 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container" *ngIf="data">
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -82,24 +80,27 @@
                 <td><span><img src="./assets/icon/id-coppel.svg" alt="Bootstrap" width="40" height="40"></span>
                 </td>
                 <th class="id-table" scope="row">B00{{item.id}}</th>
-                <td class="info-table">{{getName(item.area)}}</td>
+                <!-- <td class="info-table">{{getName(item.area)}}</td> -->
+                <td class="info-table">{{item.area}}</td>
+
                 <td class="info-table">RPA</td>
                 <td class="info-table">{{item.nombre}}</td>
-                <td class="info-table"><span>
+                <td class="info-table"><span (click)="excel(item.id)">
                     <img src="./assets/icon/doc-excel.svg" alt="Bootstrap" width="40" height="40">
-                    <img src="./assets/icon/icon-pendiente.png" alt="Bootstrap" width="15" height="15">
+                    <!-- icon-pendiente.png -->
+                    <img src="./assets/icon/icon_asisti.png" alt="Bootstrap" width="15" height="15">
                   </span>
                 </td>
-                <td class="info-table"><span>
-                    <img src="./assets/icon/doc-word.svg" alt="Bootstrap" width="40" height="40">
+                <td class="info-table"><span (click)="pdf(item.id)">
+                    <img src="./assets/icon/pdf.png" alt="Bootstrap" width="31" height="31">
                     <img src="./assets/icon/icon_asisti.png" alt="Bootstrap" width="15" height="15">
                   </span></td>
                 <td class="info-table">{{item.porcentaje}}%</td>
                 <td>
-                  <span class="m-2">
+                  <span class="m-2" (click)="createBNEAs(item.id)">
                     <i style="cursor: pointer; font-size: 1.3rem;" class="bi bi-pencil text-info"></i>
                   </span>
-                  <span class="m-2">
+                  <span (click)="deleteBNEA(item.id)" class="m-2">
                     <i style="cursor: pointer; font-size: 1.3rem;" class="bi bi-trash text-danger"></i>
                   </span>
                 </td>

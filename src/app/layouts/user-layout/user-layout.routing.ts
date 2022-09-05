@@ -6,5 +6,5 @@ import { UserComponent } from "../../pages/user/user.component";
 export const UserLayoutRoutes: Routes = [
   { path: "list-BNEAs", component: ListBNEASComponent },
   { path: "user", component: UserComponent },
-  { path: "create-BNEAs", component: CreateBneaComponent }
+  { path: "create-BNEAs/:id", component: CreateBneaComponent }
 ];

@@ -20,7 +20,7 @@
           <div class="row">
             <div class="col-12">
               <div class="form-floating mb-3">
-                <select class=" selectStyle form-select input-style" id="tipoArea" aria-label="Area">
+                <select [(ngModel)]="data.roleId"  class=" selectStyle form-select input-style" id="tipoArea" aria-label="Area">
                   <option selected>Elige un rol</option>
                   <option value="1">Administrador</option>
                   <option value="2">Usuario</option>
@@ -30,13 +30,22 @@
             </div>
             <div class="col-12 col-md-6">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control input-style" id="name" placeholder="Nombre del colaborador">
+                <input [(ngModel)]="data.name" type="text" class="form-control input-style" id="name" placeholder="Nombre del colaborador">
                 <label for="name">Nombre del colaborador</label>
               </div>
             </div>
             <div class="col-12 col-md-6">
+              <!-- <div class="form-floating mb-3">
+                <input disabled [(ngModel)]="data.idBusinessUnit" type="text" class="form-control input-style" id="unidad" placeholder="Unidad de negocio">
+                <label for="unidad">Unidad de negocio</label>
+              </div> -->
+
               <div class="form-floating mb-3">
-                <input type="text" class="form-control input-style" id="unidad" placeholder="Unidad de negocio">
+                <select  [(ngModel)]="data.idBusinessUnit"  class="selectStyle form-select input-style"
+                  id="unidad" aria-label="Area">
+                  <option  selected>Elige un negocio</option>
+                  <option *ngFor="let item of catNegocio" [value]="item.id">{{item.businessUnit}}</option>
+                </select>
                 <label for="unidad">Unidad de negocio</label>
               </div>
             </div>
@@ -45,13 +54,13 @@
           <div class="row">
             <div class="col-12 col-md-6">
               <div class="form-floating mb-3">
-                <input type="email" class="form-control input-style" id="correo" placeholder="Correo electrónico">
+                <input  [(ngModel)]="data.email" type="email" class="form-control input-style" id="correo" placeholder="Correo electrónico">
                 <label for="correo">Correo electrónico</label>
               </div>
             </div>
             <div class="col-12 col-md-6">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control input-style" id="numEmpleado" placeholder="Número de empleado">
+                <input [(ngModel)]="data.noEmployee" type="text" class="form-control input-style" id="numEmpleado" placeholder="Número de empleado">
                 <label for="numEmpleado">Número de empleado</label>
               </div>
             </div>
@@ -61,23 +70,37 @@
             <div class="col-12 col-md-6">
               <div class="row">
                 <div class="col-12 col-md-6">
-                  <div class="form-floating mb-3">
+                  <!-- <div class="form-floating mb-3">
                     <input type="text" class="form-control input-style" id="area" placeholder="Área">
+                    <label for="area">Área</label>
+                  </div> -->
+                  <div class="form-floating mb-3">
+                    <select [(ngModel)]="data.idArea" class="selectStyle form-select input-style" id="area" aria-label="Area">
+                      <option disabled selected>Elige una Área</option>
+                      <option *ngFor="let item of catArea" [value]="item.id">{{item.area}}</option>
+                    </select>
                     <label for="area">Área</label>
                   </div>
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control input-style" id="puesto" placeholder="Puesto">
+                    <input [(ngModel)]="data.employeePosition" type="text" class="form-control input-style" id="puesto" placeholder="Puesto">
                     <label for="puesto">Puesto</label>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-12 col-md-6">
-              <div class="form-floating mb-3">
+              <!-- <div class="form-floating mb-3">
                 <input type="text" class="form-control input-style" id="subdireccion" placeholder="Subdirección">
                 <label for="subdireccion">Subdirección</label>
+              </div> -->
+              <div class="form-floating mb-3">
+                <select [(ngModel)]="data.idSubDivision" class="selectStyle form-select input-style" id="Subdirección" aria-label="Subdirección">
+                  <option disabled selected>Elige una Subdirección</option>
+                  <option *ngFor="let item of catSubdireccion" [value]="item.id">{{item.subDivision}}</option>
+                </select>
+                <label for="Subdirección">Subdirección</label>
               </div>
             </div>
           </div>

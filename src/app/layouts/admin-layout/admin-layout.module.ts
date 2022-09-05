@@ -16,6 +16,7 @@ import { ListBneasAdminComponent } from 'app/pages/list-bneas-admin/list-bneas-a
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserListComponent } from 'app/pages/user-list/user-list.component';
 import { CreateUserAdminComponent } from 'app/pages/create-user-admin/create-user-admin.component';
+import { NgxChartsModule } from "@swimlane/ngx-charts";
 @NgModule({
   imports: [
     CommonModule,
@@ -26,6 +27,7 @@ import { CreateUserAdminComponent } from 'app/pages/create-user-admin/create-use
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
+    NgxChartsModule
   ],
   declarations: [
     DashboardComponent,

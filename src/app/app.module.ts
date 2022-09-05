@@ -33,6 +33,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MessageCreateBneasComponent } from './pages/message-create-bneas/message-create-bneas.component';
+import { NgxChartsModule } from "@swimlane/ngx-charts";
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +67,7 @@ import { MessageCreateBneasComponent } from './pages/message-create-bneas/messag
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
+    NgxChartsModule,
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

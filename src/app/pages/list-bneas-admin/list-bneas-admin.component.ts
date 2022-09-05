@@ -19,7 +19,9 @@ import { DialogGeneralMessageComponent } from "../dialog-general/dialog-general-
 export class ListBneasAdminComponent implements OnInit {
   public user;
   public data: any[] = [];
+  public catEmpresa: any[] = [];
   public catArea: any[] = [];
+  public idEmpresa: number;
 
 
   constructor(public router: Router,
@@ -30,8 +32,19 @@ export class ListBneasAdminComponent implements OnInit {
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('userData'));
     console.log('user', this.user);
-    this.getData();
+    // this.getData();
+    this.catalogsEmpresa();
     this.catalogsArea();
+  }
+  catalogsEmpresa(){
+    this.service
+      .serviceGeneralGet(`CatEmpresa`)
+      .subscribe((resp) => {
+        if (resp.success) {
+          this.catEmpresa = resp.result;
+          console.log('empresa', this.catEmpresa);
+        }
+      });
   }
   catalogsArea() {
     this.service
@@ -39,13 +52,15 @@ export class ListBneasAdminComponent implements OnInit {
       .subscribe((resp) => {
         if (resp.success) {
           this.catArea = resp.result;
-          console.log('area', this.catArea);
+          console.log('catArea', this.catArea);
         }
       });
   }
-  getData() {
+  getData(id: number) {
+    console.log('id de empresa', id);
+    // Bnea/GetAllBneasDash/${this.user.id}
     this.service
-      .serviceGeneralGet(`Bnea/GetAllBneasDashAdmin/${this.user.id}`)
+      .serviceGeneralGet(`Bnea/GetAllBneasDashAdmin?idEmpresa=${id}`)
       .subscribe((resp) => {
         if (resp.success) {
           this.data = resp.result;
@@ -53,10 +68,103 @@ export class ListBneasAdminComponent implements OnInit {
         }
       });
   }
+  deleteBNEA(id) {
+    this.service
+      .serviceGeneralDelete(`Bnea/DeleteBnea?idBnea=${id}`)
+      .subscribe((resp) => {
+        if (resp.success) {
+          // this.getData();
+          const dialog2 = this._dialog.open(DialogGeneralMessageComponent, {
+            data: {
+              header: "Exito",
+              body: 'Se elimino correctamente el BNEA',
+            },
+            width: "350px",
+          });
+        }
+      });
+  }
+  pdf(id) {
+    console.log('id', id);
+    let newVariable: any = window.navigator;
+    const filename = `BNEA B00${id}`;
+    this.service
+      .serviceGeneralGet(`Bnea/GetPDF/${id}`)
+      .subscribe((resp) => {
+        if (resp.success) {
+          console.log('resp doc', resp.message);
 
-  createBNEAs() {
+          const byteArray = new Uint8Array(
+            atob(resp.message)
+              .split("")
+              .map(char => char.charCodeAt(0))
+          );
+          const file = new Blob([byteArray], { type: "application/pdf" });
+          const fileURL = URL.createObjectURL(file);
+          if (newVariable && newVariable.msSaveOrOpenBlob) {
+            newVariable.msSaveOrOpenBlob(file, filename);
+          } else {
+
+            // Construct the 'a' element
+            let link = document.createElement("a");
+            link.download = filename;
+            link.target = "_blank";
+
+            // Construct the URI
+            link.href = fileURL;
+            document.body.appendChild(link);
+            link.click();
+
+            // Cleanup the DOM
+            document.body.removeChild(link);
+          }
+        }
+      });
+
+
+  }
+  excel(id) {
+    console.log('id', id);
+    let newVariable: any = window.navigator;
+    const filename = `BNEA B00${id}`;
+    this.service
+      .serviceGeneralGet(`Bnea/GetReporte/${id}`)
+      .subscribe((resp) => {
+        if (resp.success) {
+          console.log('resp doc', resp.message);
+
+          const byteArray = new Uint8Array(
+            atob(resp.message)
+              .split("")
+              .map(char => char.charCodeAt(0))
+          );
+          const file = new Blob([byteArray], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+          const fileURL = URL.createObjectURL(file);
+          if (newVariable && newVariable.msSaveOrOpenBlob) {
+            newVariable.msSaveOrOpenBlob(file, filename);
+          } else {
+
+            // Construct the 'a' element
+            let link = document.createElement("a");
+            link.download = filename;
+            link.target = "_blank";
+
+            // Construct the URI
+            link.href = fileURL;
+            document.body.appendChild(link);
+            link.click();
+
+            // Cleanup the DOM
+            document.body.removeChild(link);
+          }
+        }
+      });
+
+
+  }
+  createBNEAs(id) {
     console.log('Create BNEAs admin');
-    this.router.navigateByUrl('Admin/create-BNEAs-admin');
+    this.router.navigateByUrl(`Admin/create-BNEAs-admin/${id}`);
   }
   getName(id) {
     if (id != null) {
