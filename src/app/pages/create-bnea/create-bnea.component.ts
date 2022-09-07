@@ -503,7 +503,7 @@ export class CreateBneaComponent implements OnInit {
       this.createStep8 = true;
       console.log('crear paso 8');
       this.eightFormGroup = this._formBuilder.group({
-        idBnea: [],
+        idBnea: [this.idBNEA],
         desarrolloProv: [false],
         desarrolloProvP: [0],
         servidor: [false],
@@ -622,7 +622,7 @@ export class CreateBneaComponent implements OnInit {
       this.createStep10 = true;
       console.log('crear paso 10');
       this.tenFormGroup = this._formBuilder.group({
-        idBnea: [0],
+        idBnea: [this.idBNEA],
         mantEquipos: [false],
         mantEquiposCant: [0],
         mantEquiposEsp: [''],
@@ -778,7 +778,7 @@ export class CreateBneaComponent implements OnInit {
       this.createStep11 = true;
       console.log('crear paso 11');
       this.elevenFormGroup = this._formBuilder.group({
-        idBnea: [],
+        idBnea: [this.idBNEA],
         recurso: [0],
         tramiteMensual: [0],
         tiempoPromedio: [0],
