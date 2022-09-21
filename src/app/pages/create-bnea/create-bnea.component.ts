@@ -1267,6 +1267,15 @@ export class CreateBneaComponent implements OnInit {
         // this.data = resp.result;
         console.log('resp paso 13', this.data);
         this.getData(this.idBNEA);
+
+        const dialog2 = this._dialog.open(DialogGeneralMessageComponent, {
+          data: {
+            header: "Terminaste el BNEA",
+            body: 'El BNEA se guardo correctamente',
+          },
+          width: "350px",
+        });
+        this.router.navigateByUrl("User/list-BNEAs");
       }
     });
   }

@@ -5,12 +5,13 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from "@angular/common/http";
+import { BrowserModule } from '@angular/platform-browser';
 
 import { SidebarModule } from './sidebar/sidebar.module';
 import { SidebarUserModule } from './sidebar-user/sidebar-user.module';
 import { FooterModule } from './shared/footer/footer.module';
-import { NavbarModule} from './shared/navbar/navbar.module';
-import { FixedPluginModule} from './shared/fixedplugin/fixedplugin.module';
+import { NavbarModule } from './shared/navbar/navbar.module';
+import { FixedPluginModule } from './shared/fixedplugin/fixedplugin.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
@@ -34,6 +35,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MessageCreateBneasComponent } from './pages/message-create-bneas/message-create-bneas.component';
 import { NgxChartsModule } from "@swimlane/ngx-charts";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,9 +51,10 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
   ],
   imports: [
     BrowserAnimationsModule,
-    RouterModule.forRoot(AppRoutes,{
+    RouterModule.forRoot(AppRoutes, {
       useHash: true
     }),
+    BrowserModule,
     SidebarModule,
     SidebarUserModule,
     NavbarModule,

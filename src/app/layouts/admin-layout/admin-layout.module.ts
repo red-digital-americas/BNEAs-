@@ -17,6 +17,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserListComponent } from 'app/pages/user-list/user-list.component';
 import { CreateUserAdminComponent } from 'app/pages/create-user-admin/create-user-admin.component';
 import { NgxChartsModule } from "@swimlane/ngx-charts";
+import { OrderByPipe } from './pipe/orderby.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -27,7 +30,8 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    NgxChartsModule
+    NgxChartsModule,
+    Ng2SearchPipeModule
   ],
   declarations: [
     DashboardComponent,
@@ -36,6 +40,7 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
     ListBneasAdminComponent,
     UserListComponent,
     CreateUserAdminComponent,
+    OrderByPipe,
   ],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

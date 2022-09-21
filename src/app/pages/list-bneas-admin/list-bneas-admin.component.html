@@ -55,6 +55,14 @@
       </span>
     </div>
   </div>
+  <div class="row">
+    <div class="col-5">
+      <div class="form-group search">
+        <input name="buscar" id="buscar" [(ngModel)]="buscar" type="text" class="form-control search"
+          placeholder="Buscar">
+      </div>
+    </div>
+  </div>
 </div>
 <div class="container" *ngIf="data">
   <div class="row">
@@ -76,7 +84,7 @@
               </tr>
             </thead>
             <tbody class="text-center">
-              <tr *ngFor="let item of data">
+              <tr *ngFor="let item of data | orderBy: 'id': 'desc' | filter:buscar">
                 <td><span><img src="./assets/icon/id-coppel.svg" alt="Bootstrap" width="40" height="40"></span>
                 </td>
                 <th class="id-table" scope="row">B00{{item.id}}</th>
@@ -91,10 +99,9 @@
                     <img src="./assets/icon/icon_asisti.png" alt="Bootstrap" width="15" height="15">
                   </span>
                 </td>
-                <td class="info-table"><span (click)="pdf(item.id)">
-                    <img src="./assets/icon/pdf.png" alt="Bootstrap" width="31" height="31">
-                    <img src="./assets/icon/icon_asisti.png" alt="Bootstrap" width="15" height="15">
-                  </span></td>
+                <td class="info-table"><span (click)="word(item.id)">
+                    <img src="./assets/icon/doc-word.svg" alt="Bootstrap" width="40" height="40">
+                    <img src="./assets/icon/icon_asisti.png" alt="Bootstrap" width="15" height="15"> </span></td>
                 <td class="info-table">{{item.porcentaje}}%</td>
                 <td>
                   <span class="m-2" (click)="createBNEAs(item.id)">

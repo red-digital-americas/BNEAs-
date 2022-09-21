@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
       "value": 0
     },
     {
-      "name": "Banco",
+      "name": "Bancoppel",
       "value": 0
     }
   ];
@@ -148,7 +148,7 @@ export class DashboardComponent implements OnInit {
               "value": this.data.totalEntradaByAfore
             },
             {
-              "name": "Banco",
+              "name": "Bancoppel",
               "value": this.data.totalEntradaByBanco
             }
           ];

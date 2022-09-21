@@ -14,11 +14,13 @@ import { ListBNEASComponent } from 'app/pages/list-bneas/list-bneas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DialogChangePasswordComponent } from 'app/pages/dialog/dialog-change-password/dialog-change-password.component';
 import { MatDialogModule } from "@angular/material/dialog";
- 
+import { OrderByPipe } from './pipe/orderby.pipe'; 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
   imports: [
+    
     CommonModule,
     RouterModule.forChild(UserLayoutRoutes),
     FormsModule,
@@ -28,12 +30,14 @@ import { MatDialogModule } from "@angular/material/dialog";
     ReactiveFormsModule,
     MatInputModule,
     MatDialogModule,
+    Ng2SearchPipeModule,
   ],
   declarations: [
     UserComponent,
     CreateBneaComponent,
     ListBNEASComponent,
     DialogChangePasswordComponent,
+    OrderByPipe,
   ],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

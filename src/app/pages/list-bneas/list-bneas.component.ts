@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
 import {
   MatDialogRef,
   MAT_DIALOG_DATA,
@@ -18,6 +19,7 @@ export class ListBNEASComponent implements OnInit {
   public user;
   public data: any[] = [];
   public catArea: any[] = [];
+  public buscar;
 
 
   constructor(public router: Router,
@@ -51,12 +53,13 @@ export class ListBNEASComponent implements OnInit {
         }
       });
   }
-  pdf(id) {
+  word(id) {
     console.log('id', id);
+    // /Bnea/GetDoc
     let newVariable: any = window.navigator;
     const filename = `BNEA B00${id}`;
     this.service
-      .serviceGeneralGet(`Bnea/GetPDF/${id}`)
+      .serviceGeneralGet(`Bnea/GetDoc/${id}`)
       .subscribe((resp) => {
         if (resp.success) {
           console.log('resp doc', resp.message);
@@ -66,7 +69,7 @@ export class ListBNEASComponent implements OnInit {
               .split("")
               .map(char => char.charCodeAt(0))
           );
-          const file = new Blob([byteArray], { type: "application/pdf" });
+          const file = new Blob([byteArray], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
           const fileURL = URL.createObjectURL(file);
           if (newVariable && newVariable.msSaveOrOpenBlob) {
             newVariable.msSaveOrOpenBlob(file, filename);
@@ -105,7 +108,7 @@ export class ListBNEASComponent implements OnInit {
               .split("")
               .map(char => char.charCodeAt(0))
           );
-          const file = new Blob([byteArray], { type: "application/xls" });
+          const file = new Blob([byteArray], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
           const fileURL = URL.createObjectURL(file);
           if (newVariable && newVariable.msSaveOrOpenBlob) {
             newVariable.msSaveOrOpenBlob(file, filename);
@@ -126,8 +129,6 @@ export class ListBNEASComponent implements OnInit {
           }
         }
       });
-
-
   }
   deleteBNEA(id) {
     this.service

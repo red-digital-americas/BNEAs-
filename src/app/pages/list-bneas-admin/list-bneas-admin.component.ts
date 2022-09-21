@@ -22,6 +22,8 @@ export class ListBneasAdminComponent implements OnInit {
   public catEmpresa: any[] = [];
   public catArea: any[] = [];
   public idEmpresa: number;
+  public buscar;
+
 
 
   constructor(public router: Router,
@@ -36,7 +38,7 @@ export class ListBneasAdminComponent implements OnInit {
     this.catalogsEmpresa();
     this.catalogsArea();
   }
-  catalogsEmpresa(){
+  catalogsEmpresa() {
     this.service
       .serviceGeneralGet(`CatEmpresa`)
       .subscribe((resp) => {
@@ -84,12 +86,13 @@ export class ListBneasAdminComponent implements OnInit {
         }
       });
   }
-  pdf(id) {
+  word(id) {
     console.log('id', id);
+    // /Bnea/GetDoc
     let newVariable: any = window.navigator;
     const filename = `BNEA B00${id}`;
     this.service
-      .serviceGeneralGet(`Bnea/GetPDF/${id}`)
+      .serviceGeneralGet(`Bnea/GetDoc/${id}`)
       .subscribe((resp) => {
         if (resp.success) {
           console.log('resp doc', resp.message);
@@ -99,7 +102,7 @@ export class ListBneasAdminComponent implements OnInit {
               .split("")
               .map(char => char.charCodeAt(0))
           );
-          const file = new Blob([byteArray], { type: "application/pdf" });
+          const file = new Blob([byteArray], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
           const fileURL = URL.createObjectURL(file);
           if (newVariable && newVariable.msSaveOrOpenBlob) {
             newVariable.msSaveOrOpenBlob(file, filename);
@@ -120,8 +123,6 @@ export class ListBneasAdminComponent implements OnInit {
           }
         }
       });
-
-
   }
   excel(id) {
     console.log('id', id);
@@ -159,8 +160,6 @@ export class ListBneasAdminComponent implements OnInit {
           }
         }
       });
-
-
   }
   createBNEAs(id) {
     console.log('Create BNEAs admin');
