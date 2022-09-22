@@ -51,8 +51,8 @@
                         <select type="number" formControlName="idBusinessUnit" name="unidadNegocio"
                           class="form-select input-style form-control select-step" id="unidadNegocio"
                           aria-label="Unidad de Negocio">
-                          <option selected>Elige una tipo</option>
-                          <option *ngFor="let item of catBussinessUnit" [value]="item.id">{{item.businessUnit}}</option>
+                          <option disabled selected>Elige una opción</option>
+                          <option *ngFor="let item of catBussinessUnit" [value]="item.id">{{item.empresa}}</option>
                         </select>
                         <label for="unidadNegocio">Unidad de negocio</label>
                       </div>

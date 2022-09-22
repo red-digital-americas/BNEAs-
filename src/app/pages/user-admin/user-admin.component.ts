@@ -45,7 +45,7 @@ export class UserAdminComponent implements OnInit {
   }
   catalogsBussiness() {
     this.service
-      .serviceGeneralGet(`CatBusinessUnit`)
+      .serviceGeneralGet(`CatEmpresa`)
       .subscribe((resp) => {
         if (resp.success) {
           this.catBussinessUnit = resp.result;

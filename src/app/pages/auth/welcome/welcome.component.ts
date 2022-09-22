@@ -22,12 +22,12 @@ export class WelcomeComponent implements OnInit {
     // console.log("user", this.user);
     if (this.profile == '2') {
       setTimeout(() => {
-        this.router.navigateByUrl("Admin");
+        this.router.navigateByUrl("Admin/dashboard");
       }, 2000);
     }
     else if (this.profile == '1') {
       setTimeout(() => {
-        this.router.navigateByUrl("User");
+        this.router.navigateByUrl("User/list-BNEAs");
       }, 2000);
 
     }
