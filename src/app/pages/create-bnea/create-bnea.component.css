@@ -55,7 +55,9 @@
 .select-step {
   border: 1px solid #fff !important;
 }
-
+.alin-center {
+  /* align-self: center; */
+}
 .parag-step {
   font-family: Roboto;
   font-size: 0.975rem;
