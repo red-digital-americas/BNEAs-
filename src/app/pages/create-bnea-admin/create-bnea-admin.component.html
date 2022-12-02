@@ -236,7 +236,10 @@
                       aria-label="Rol de trabajo"
                     >
                       <option selected>Elige una rol</option>
-                      <option *ngFor="let item of cRol" [value]="item.id">
+                      <option
+                        *ngFor="let item of cRolReciber"
+                        [value]="item.id"
+                      >
                         {{ item.rolTrabajo }}
                       </option>
                     </select>
@@ -244,7 +247,6 @@
                   </div>
                 </div>
               </div>
-              <!-- add section -->
               <!-- btn -->
               <div class="row">
                 <div class="col-12 text-end my-3">
@@ -427,7 +429,7 @@
                 <!-- formulario -->
                 <div class="col-12 my-3">
                   <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                       <div class="form-floating mb-3">
                         <input
                           formControlName="situacion"
@@ -440,6 +442,19 @@
                         <label for="situacionActual"
                           >Definición de la Situación Actual</label
                         >
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-floating mb-3">
+                        <input
+                          formControlName="alcance"
+                          type="text"
+                          class="form-control input-style"
+                          title="Alcance"
+                          id="alcance"
+                          placeholder="Alcance"
+                        />
+                        <label for="alcance">Alcance</label>
                       </div>
                     </div>
                   </div>
@@ -532,7 +547,7 @@
               </div>
             </form>
           </mat-step>
-          <!-- 5 paso  -->
+           <!-- 5 paso  -->
           <mat-step [stepControl]="fiveFormGroup">
             <form [formGroup]="fiveFormGroup">
               <div class="row">
@@ -552,16 +567,48 @@
                 </div>
                 <!-- fuera de alcance -->
                 <div class="col-12">
-                  <div class="col-12 col-md-6">
-                    <div class="form-floating mb-3">
-                      <input
-                        formControlName="alcance"
-                        type="text"
-                        class="form-control input-style"
-                        id="fueAlcance"
-                        placeholder="Fuera de alcance"
-                      />
-                      <label for="fueAlcance">Fuera de alcance</label>
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div class="form-floating mb-3">
+                        <input
+                          formControlName="alcance"
+                          type="text"
+                          class="form-control input-style"
+                          id="fueAlcance"
+                          placeholder="Fuera de alcance"
+                        />
+                        <label for="fueAlcance">Fuera de alcance</label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="row">
+                        <div class="col-10">
+                          <div class="form-floating textarea-h">
+                            <textarea
+                              id="BeneficioIniciativa"
+                              formControlName="beneficios"
+                              rows="6"
+                              class="form-control input-style"
+                              placeholder="Definir lo que se quiere lograr con la iniciativa."
+                            ></textarea>
+                            <label for="BeneficioIniciativa"
+                              >Estimación de los beneficios de la
+                              iniciativa</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-2 alin-center">
+                          <button
+                            type="button"
+                            class="btn btn-light"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="bottom"
+                            title="Incluir la descripción de los beneficios suaves, beneficios potenciales, de presupuesto o de impacto en ventas identificados."
+                          >
+                            <i class="bi bi-info-circle"></i>
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -2085,12 +2132,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="mantEquiposPor" type="number" min="0" class="form-control input-style"
-                      id="mantEquiposPor10" placeholder="Cantidad">
-                    <label for="mantEquiposPor10">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="mantEquiposPor" type="number" min="0" class="form-control input-style"
+											id="mantEquiposPor10" placeholder="Cantidad">
+										<label for="mantEquiposPor10">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7">
                   <div class="form-floating">
                     <input
@@ -2138,12 +2185,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="soportePor" type="number" min="0" class="form-control input-style"
-                      id="soportePor10" placeholder="Porcentaje">
-                    <label for="soportePor10">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="soportePor" type="number" min="0" class="form-control input-style"
+											id="soportePor10" placeholder="Porcentaje">
+										<label for="soportePor10">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7">
                   <div class="form-floating">
                     <input
@@ -2191,12 +2238,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="plantasPor" type="number" class="form-control input-style" id="plantasPor"
-                      min="0" placeholder="Porcentaje">
-                    <label for="plantasPor">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="plantasPor" type="number" class="form-control input-style" id="plantasPor"
+											min="0" placeholder="Porcentaje">
+										<label for="plantasPor">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7">
                   <div class="form-floating">
                     <input
@@ -2244,12 +2291,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="rentaPor" type="number" min="0" class="form-control input-style"
-                      id="rentaPor" placeholder="Porcentaje">
-                    <label for="rentaPor">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="rentaPor" type="number" min="0" class="form-control input-style"
+											id="rentaPor" placeholder="Porcentaje">
+										<label for="rentaPor">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7 align-center">
                   <div class="form-floating">
                     <input
@@ -2297,12 +2344,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="combustiblePor" min="0" type="number" class="form-control input-style"
-                      id="combustiblePor" placeholder="Porcentaje">
-                    <label for="combustiblePor">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="combustiblePor" min="0" type="number" class="form-control input-style"
+											id="combustiblePor" placeholder="Porcentaje">
+										<label for="combustiblePor">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7 align-center">
                   <div class="form-floating">
                     <input
@@ -2350,12 +2397,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="energiaPor" type="number" min="0" class="form-control input-style"
-                      id="energiaPor10" placeholder="Porcentaje">
-                    <label for="energiaPor10">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="energiaPor" type="number" min="0" class="form-control input-style"
+											id="energiaPor10" placeholder="Porcentaje">
+										<label for="energiaPor10">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7 align-center">
                   <div class="form-floating">
                     <input
@@ -2403,12 +2450,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="suministroPor" min="0" type="number" class="form-control input-style"
-                      id="suministroPor10" placeholder="Porcentaje">
-                    <label for="suministroPor10">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="suministroPor" min="0" type="number" class="form-control input-style"
+											id="suministroPor10" placeholder="Porcentaje">
+										<label for="suministroPor10">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7 align-center">
                   <div class="form-floating">
                     <input
@@ -2454,12 +2501,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="multaPor" min="0" type="number" class="form-control input-style"
-                      id="multaPor10" placeholder="Porcentaje">
-                    <label for="multaPor10">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="multaPor" min="0" type="number" class="form-control input-style"
+											id="multaPor10" placeholder="Porcentaje">
+										<label for="multaPor10">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7 align-center">
                   <div class="form-floating">
                     <input
@@ -2507,12 +2554,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="mantComputoPor" min="0" type="number" class="form-control input-style"
-                      id="mantComputoPor10" placeholder="Porcentaje">
-                    <label for="mantComputoPor10">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="mantComputoPor" min="0" type="number" class="form-control input-style"
+											id="mantComputoPor10" placeholder="Porcentaje">
+										<label for="mantComputoPor10">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7 align-center">
                   <div class="form-floating">
                     <input
@@ -2560,12 +2607,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="mantTransPor" min="0" type="number" class="form-control input-style"
-                      id="mantTransPor10" placeholder="Porcentaje">
-                    <label for="mantTransPor10">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="mantTransPor" min="0" type="number" class="form-control input-style"
+											id="mantTransPor10" placeholder="Porcentaje">
+										<label for="mantTransPor10">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7 align-center">
                   <div class="form-floating">
                     <input
@@ -2613,12 +2660,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="mantTecnoPor" min="0" type="number" class="form-control input-style"
-                      id="mantTecnoPor10" placeholder="Porcentaje">
-                    <label for="mantTecnoPor10">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="mantTecnoPor" min="0" type="number" class="form-control input-style"
+											id="mantTecnoPor10" placeholder="Porcentaje">
+										<label for="mantTecnoPor10">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7 align-center">
                   <div class="form-floating">
                     <input
@@ -2666,12 +2713,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="licenciaPor" min="0" type="number" class="form-control input-style"
-                      id="licenciaPor10" placeholder="Porcentaje">
-                    <label for="licenciaPor10">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="licenciaPor" min="0" type="number" class="form-control input-style"
+											id="licenciaPor10" placeholder="Porcentaje">
+										<label for="licenciaPor10">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7 align-center">
                   <div class="form-floating">
                     <input
@@ -2721,12 +2768,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="soporteSoftPor" min="0" type="number" class="form-control input-style"
-                      id="soporteSoftPor10" placeholder="Porcentaje">
-                    <label for="soporteSoftPor10">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="soporteSoftPor" min="0" type="number" class="form-control input-style"
+											id="soporteSoftPor10" placeholder="Porcentaje">
+										<label for="soporteSoftPor10">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7 align-center">
                   <div class="form-floating">
                     <input
@@ -2774,12 +2821,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="consultoriaPor" min="0" type="number" class="form-control input-style"
-                      id="consultoriaPor10" placeholder="Porcentaje">
-                    <label for="consultoriaPor10">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="consultoriaPor" min="0" type="number" class="form-control input-style"
+											id="consultoriaPor10" placeholder="Porcentaje">
+										<label for="consultoriaPor10">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7 align-center">
                   <div class="form-floating">
                     <input
@@ -2827,12 +2874,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="incrementoPor" min="0" type="number" class="form-control input-style"
-                      id="incrementoPor10" placeholder="Porcentaje">
-                    <label for="incrementoPor10">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="incrementoPor" min="0" type="number" class="form-control input-style"
+											id="incrementoPor10" placeholder="Porcentaje">
+										<label for="incrementoPor10">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7 align-center">
                   <div class="form-floating">
                     <input
@@ -2880,12 +2927,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="decrementoPor" min="0" type="number" class="form-control input-style"
-                      id="decrementoPor10" placeholder="Porcentaje">
-                    <label for="decrementoPor10">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="decrementoPor" min="0" type="number" class="form-control input-style"
+											id="decrementoPor10" placeholder="Porcentaje">
+										<label for="decrementoPor10">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7 align-center">
                   <div class="form-floating">
                     <input
@@ -2933,12 +2980,12 @@
                   </div>
                 </div>
                 <!-- <div class="col-2">
-                  <div class="form-floating">
-                    <input formControlName="utilizacionPor" min="0" type="number" class="form-control input-style"
-                      id="utilizacionPor10" placeholder="Porcentaje">
-                    <label for="utilizacionPor10">Porcentaje</label>
-                  </div>
-                </div> -->
+									<div class="form-floating">
+										<input formControlName="utilizacionPor" min="0" type="number" class="form-control input-style"
+											id="utilizacionPor10" placeholder="Porcentaje">
+										<label for="utilizacionPor10">Porcentaje</label>
+									</div>
+								</div> -->
                 <div class="col-7 align-center">
                   <div class="form-floating">
                     <input
@@ -3446,7 +3493,7 @@
               </div>
             </form>
           </mat-step>
-          <!-- 13 paso  -->
+           <!-- 13 paso  -->
           <mat-step [stepControl]="thirteenFormGroup">
             <form [formGroup]="thirteenFormGroup">
               <div class="row">
@@ -3461,105 +3508,188 @@
                     >Seleccione los entregables que generará el proyecto</span
                   >
                 </div>
+                <!-- formulario -->
+                <div class="col-12 my-3 text-end">
+                  <span (click)="addDocument()" class="add-beneficit"
+                    >Agregar Documento
+                    <img src="./assets/icon/icon-add.png" alt="icon agregar" />
+                  </span>
+                </div>
               </div>
               <!-- form -->
               <!-- 1 row -->
-              <div class="row my-3">
-                <div class="col-4">
-                  <div class="row">
-                    <div class="col-2 align-center">
-                      <input
-                        formControlName="acta"
-                        class="form-check-input checkbox-style"
-                        type="checkbox"
-                        value=""
-                        id="acta12"
-                      />
-                    </div>
-                    <div class="col-10 align-center">
-                      <label for="acta12" class="label-check">
-                        Acta de constitución
-                      </label>
-                    </div>
-                  </div>
+              <div
+                class="row my-2"
+                *ngFor="let item of documento; index as index"
+              >
+                <div class="col-12 text-end my-1" *ngIf="index != 0">
+                  <img
+                    (click)="deleteDocumento(item, index)"
+                    class="delete-icon"
+                    src="./assets/icon/icon-delete.png"
+                    alt="icon delete"
+                  />
                 </div>
-                <div class="col-4">
-                  <div class="row">
-                    <div class="col-2 align-center">
-                      <input
-                        formControlName="planTrabajo"
-                        class="form-check-input checkbox-style"
-                        type="checkbox"
-                        value=""
-                        id="planTrabajo12"
-                      />
+                <div class="col-12">
+                  <div class="row align-self-center">
+                    <div class="col-6 col-md-3">
+                      <span class="lab-span">Documento</span>
                     </div>
-                    <div class="col-10 align-center">
-                      <label for="planTrabajo12" class="label-check">
-                        Plan de trabajo
-                      </label>
+                    <div class="col-6 col-md-3">
+                      <div class="form-floating mb-3">
+                        <input
+                          [ngModelOptions]="{ standalone: true }"
+                          [(ngModel)]="item.documento"
+                          type="text"
+                          class="form-control input-style"
+                          id="documento"
+                          placeholder="documento"
+                        />
+                        <label for="documento">Documento</label>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="row">
-                    <div class="col-2 align-center">
-                      <input
-                        formControlName="reporte"
-                        class="form-check-input checkbox-style"
-                        type="checkbox"
-                        value=""
-                        id="reporte12"
-                      />
+                    <div class="col-6 col-md-3">
+                      <span class="lab-span">Validador</span>
                     </div>
-                    <div class="col-10 align-center">
-                      <label for="reporte12" class="label-check">
-                        Reporte de avances semanales
-                      </label>
+                    <div class="col-6 col-md-3">
+                      <div class="form-floating mb-3">
+                        <input
+                          [ngModelOptions]="{ standalone: true }"
+                          [(ngModel)]="item.validador"
+                          type="text"
+                          class="form-control input-style"
+                          id="validador"
+                        />
+                        <label for="validador">Validador</label>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- 2 row -->
-              <div class="row my-3">
-                <div class="col-4">
-                  <div class="row">
-                    <div class="col-2 align-center">
-                      <input
-                        formControlName="carta"
-                        class="form-check-input checkbox-style"
-                        type="checkbox"
-                        value=""
-                        id="carta12"
-                      />
-                    </div>
-                    <div class="col-10 align-center">
-                      <label for="carta12" class="label-check">
-                        Carta de entrega del proyecto
-                      </label>
-                    </div>
-                  </div>
+
+              <!-- btn -->
+              <div class="row">
+                <div class="col-12 text-end my-3">
+                  <button
+                    matStepperPrevious
+                    type="button"
+                    class="btn btn-warning btn-entrar"
+                  >
+                    <span class="text-btn text-dark"> < Regresar </span>
+                  </button>
+                   <button
+                    matStepperNext
+                    type="button"
+                    class="btn btn-dark btn-entrar"
+                  >
+                    <span class="text-warning text-btn"> Continuar > </span>
+                  </button>
                 </div>
-                <div class="col-4">
-                  <div class="row">
-                    <div class="col-2 align-center">
-                      <input
-                        formControlName="manual"
-                        class="form-check-input checkbox-style"
-                        type="checkbox"
-                        value=""
-                        id="manual12"
-                      />
-                    </div>
-                    <div class="col-10 align-center">
-                      <label for="manual12" class="label-check">
-                        Manual de instalación de Código Backup de producción
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-4"></div>
               </div>
+              <div class="row">
+                <div class="col-12 text-end my-3">
+                  <button
+                    (click)="step13()"
+                    matStepperNext
+                    type="button"
+                    class="btn btn-info btn-entrar"
+                  >
+                    <span class="text-warning text-btn"> Guardar </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </mat-step>
+          <!-- 14 paso  -->
+          <mat-step [stepControl]="thirteenFormGroup">
+            <form [formGroup]="thirteenFormGroup">
+              <div class="row">
+                <div class="col-12">
+                  <span class="text-step"
+                    >Paso 14
+                    <span class="subtitle-step">
+                      Hitos principales de la iniciativa
+                    </span>
+                  </span>
+                </div>
+                <div class="col-12 my-3">
+                  <span class="parag-step"
+                    >Hitos principales de la iniciativa</span
+                  >
+                </div>
+                <!-- formulario -->
+                <div class="col-12 my-3 text-end">
+                  <span (click)="addHito()" class="add-beneficit"
+                    >Agregar Hito
+                    <img src="./assets/icon/icon-add.png" alt="icon agregar" />
+                  </span>
+                </div>
+              </div>
+              <!-- form -->
+              <!-- 1 row -->
+              <div class="row my-2" *ngFor="let item of hito; index as index">
+                <div class="col-12 text-end my-1" *ngIf="index != 0">
+                  <img
+                    (click)="deleteHito(item, index)"
+                    class="delete-icon"
+                    src="./assets/icon/icon-delete.png"
+                    alt="icon delete"
+                  />
+                </div>
+                <div class="col-12">
+                  <div class="row align-self-center">
+                    <div class="col-6 col-md-3">
+                      <span class="lab-span">Hito</span>
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <div class="form-floating mb-3">
+                        <input
+                          [ngModelOptions]="{ standalone: true }"
+                          [(ngModel)]="item.hito"
+                          type="text"
+                          class="form-control input-style"
+                          id="hito"
+                          placeholder="hito"
+                        />
+                        <label for="hito">Hito</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row align-self-center">
+                    <div class="col-6 col-md-3">
+                      <span class="lab-span">Fecha Inicio</span>
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <div class="form-floating mb-3">
+                        <input
+                          [ngModelOptions]="{ standalone: true }"
+                          [(ngModel)]="item.fechaInicio"
+                          type="date"
+                          class="form-control input-style"
+                          id="fechaInicio"
+                        />
+                        <label for="fechaInicio">Fecha Inicio</label>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <span class="lab-span">Fecha Fin</span>
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <div class="form-floating mb-3">
+                        <input
+                          [ngModelOptions]="{ standalone: true }"
+                          [(ngModel)]="item.fechaFin"
+                          type="date"
+                          class="form-control input-style"
+                          id="fechaFin"
+                        />
+                        <label for="fechaFin">Fecha Fin</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <!-- btn -->
               <div class="row">
                 <div class="col-12 text-end my-3">
@@ -3575,8 +3705,7 @@
               <div class="row">
                 <div class="col-12 text-end my-3">
                   <button
-                    [disabled]="!thirteenFormGroup.valid"
-                    (click)="step13()"
+                    (click)="step14()"
                     matStepperNext
                     type="button"
                     class="btn btn-info btn-entrar"

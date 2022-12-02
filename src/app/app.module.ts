@@ -36,6 +36,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MessageCreateBneasComponent } from './pages/message-create-bneas/message-create-bneas.component';
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 
+import { DatePipe } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +74,7 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
     MatFormFieldModule,
     NgxChartsModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
   bootstrap: [AppComponent]

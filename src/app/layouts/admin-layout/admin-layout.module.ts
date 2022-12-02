@@ -20,6 +20,7 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
 import { OrderByPipe } from './pipe/orderby.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
+
 @NgModule({
   imports: [
     CommonModule,

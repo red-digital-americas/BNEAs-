@@ -9,6 +9,8 @@ import {
   MAT_DIALOG_DATA,
 } from "@angular/material/dialog";
 import { DialogGeneralMessageComponent } from 'app/pages/dialog-general/dialog-general-message/dialog-general-message.component';
+import { DatePipe } from '@angular/common';
+
 
 
 @Component({
@@ -43,9 +45,11 @@ export class CreateBneaComponent implements OnInit {
     indicadores: ['', Validators.required],
     descripcion: ['', Validators.required],
     idEmpresa: ['', Validators.required],
+    alcance: ['', Validators.required],
   });
   fiveFormGroup = this._formBuilder.group({
     alcance: ['', Validators.required],
+    beneficios: ['', Validators.required],
   });
   sixFormGroup = this._formBuilder.group(
     [
@@ -224,23 +228,36 @@ export class CreateBneaComponent implements OnInit {
     computador: [''],
     servidor: [''],
   });
-  thirteenFormGroup = this._formBuilder.group({
-    idBnea: [''],
-    acta: [''],
-    planTrabajo: [''],
-    reporte: [''],
-    carta: [''],
-    manual: [''],
-  });
+  thirteenFormGroup = this._formBuilder.group(
+    [
+      {
+        complete: ['', Validators.required],
+      }
+    ]
+  );
+  fourteenFormGroup = this._formBuilder.group(
+    [
+      {
+        complete: ['', Validators.required],
+      }
+    ]
+  );
 
   public user;
   public data;
   public idBNEA;
   public beneficit: any[] = [];
+  public documento: any[] = [];
+  public hito: any[] = [];
+  public today = new Date();
+
+
   public team: any[] = [];
   public cTypeBnea: any[] = [];
   public cEmpresa: any[] = [];
   public cRol: any[] = [];
+  public cRolReciber: any[] = [];
+
   public cRecurso: any[] = [];
   public step7Data: Step7Model = new Step7Model();
   public step8Data: Step8Model = new Step8Model();
@@ -253,19 +270,24 @@ export class CreateBneaComponent implements OnInit {
   public createStep11 = false;
   public step12Data: Step12Model = new Step12Model();
   public createStep12 = false;
-  public step13Data: Step13Model = new Step13Model();
+  public step13Data = false;
   public createStep13 = false;
+  public createStep14 = false;
+
   public createStep6 = false;
   public createStep7 = false;
 
-  constructor(private _formBuilder: FormBuilder, public router: Router, public service: ServiceGeneralService, public routerActive: ActivatedRoute, public _dialog: MatDialog,
+  constructor(private _formBuilder: FormBuilder, public router: Router, public service: ServiceGeneralService, public routerActive: ActivatedRoute, public _dialog: MatDialog, private datePipe: DatePipe
   ) { }
+
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('userData'));
     console.log('user', this.user);
 
     this.idBNEA = this.routerActive.snapshot.paramMap.get('id');
+    this.idBNEA = Number(this.idBNEA);
+
     console.log(`id BNEA ${this.idBNEA}`);
     this.getCatTypeBnea();
     this.getCatEmpresa();
@@ -298,6 +320,8 @@ export class CreateBneaComponent implements OnInit {
         this.getDataStep11();
         this.getDataStep12();
         this.getDataStep13();
+        this.getDataStep14();
+
         this.firstFormGroup = this._formBuilder.group({
           idTipoBnea: [this.data.bnea.idTipoBnea, Validators.required],
           idUser: [this.user.id, Validators.required],
@@ -321,9 +345,11 @@ export class CreateBneaComponent implements OnInit {
           situacion: [this.data.bnea.situacionActual, Validators.required],
           indicadores: [this.data.bnea.indicadorObjetivo, Validators.required],
           descripcion: [this.data.bnea.descripcionResultado, Validators.required],
+          alcance: [this.data.bnea.alcanceIniciativa, Validators.required],
         });
         this.fiveFormGroup = this._formBuilder.group({
           alcance: [this.data.bnea.fueraAlcance, Validators.required],
+          beneficios: [this.data.bnea.beneficiosIniciativa, Validators.required],
         });
         this.sevenFormGroup = this._formBuilder.group({
           desarrollo: [this.data.bneaPaso7.desarrollo],
@@ -380,6 +406,7 @@ export class CreateBneaComponent implements OnInit {
       });
   }
   getDataStep6() {
+    this.beneficit = [];
     if (this.data.bneaPaso6s === null) {
       this.createStep6 = true;
       console.log('crear paso 6');
@@ -850,37 +877,76 @@ export class CreateBneaComponent implements OnInit {
     }
   }
   getDataStep13() {
+    this.documento = [];
     if (this.data.bneaPaso13 === null) {
       this.createStep13 = true;
       console.log('crear paso 13');
-      this.thirteenFormGroup = this._formBuilder.group({
-        idBnea: [this.idBNEA],
-        acta: [false],
-        planTrabajo: [false],
-        reporte: [false],
-        carta: [false],
-        manual: [false],
-      });
+      this.documento.push(
+        {
+          idBnea: this.idBNEA,
+          id: 0,
+          documento: '',
+          validador: '',
+        });
     }
     else {
       this.createStep13 = false;
       console.log('actualizar paso 13');
       this.service.serviceGeneralGet(`Bnea/GetPaso13?idUser=${this.user.id}&idBnea=${this.data.bnea.id}`).subscribe(resp => {
         if (resp.success) {
-          this.step13Data = resp.result;
-          this.thirteenFormGroup = this._formBuilder.group({
-            idBnea: [this.idBNEA],
-            acta: [this.step13Data.acta],
-            planTrabajo: [this.step13Data.planTrabajo],
-            reporte: [this.step13Data.reporte],
-            carta: [this.step13Data.carta],
-            manual: [this.step13Data.manual],
-          });
+          const createStep13 = resp.result;
+          console.log('data paso 13', createStep13);
+          if (createStep13.length != 0) {
+            createStep13.forEach(element => {
+              this.documento.push({
+                idBnea: element.idBnea,
+                id: element.id,
+                documento: element.documento,
+                validador: element.validador,
+              });
+            });
+          }
         }
       });
     }
   }
+  getDataStep14() {
+    this.hito= [];
+    this.createStep14 = false;
+    console.log('actualizar paso 14');
+    this.service.serviceGeneralGet(`Bnea/GetPaso14?idUser=${this.user.id}&idBnea=${this.data.bnea.id}`).subscribe(resp => {
+      if (resp.success) {
+        const createStep14 = resp.result;
+        console.log('data paso 14', createStep14);
+        if (createStep14.length != 0) {
+          createStep14.forEach(element => {
+            console.log(this.datePipe.transform(element.fechaInicio, "yyyy-MM-dd"));
+            this.hito.push({
+              idBnea: element.idBnea,
+              idPaso: element.idPaso,
+              hito: element.hito,
+              fechaInicio: element.fechaInicio = this.datePipe.transform(element.fechaInicio, "yyyy-MM-dd"),
+              fechaFin: element.fechaFin = this.datePipe.transform(element.fechaFin, "yyyy-MM-dd"),
 
+            });
+          });
+        }
+        else {
+          this.createStep14 = true;
+          console.log('crear paso 14');
+          this.hito.push(
+            {
+              idBnea: this.idBNEA,
+              idPaso: 0,
+              hito: '',
+              fechaInicio: this.today,
+              fechaFin: this.today,
+            });
+        }
+      }
+    });
+
+  }
   // Catalogos 
   getCatTypeBnea() {
     this.service.serviceGeneralGet(`CatTipoBneas`).subscribe(resp => {
@@ -900,10 +966,16 @@ export class CreateBneaComponent implements OnInit {
     });
   }
   getCatRole() {
-    this.service.serviceGeneralGet(`CatRolTrabajo`).subscribe(resp => {
+    this.service.serviceGeneralGet(`CatRolTrabajo/GetAllLider`).subscribe(resp => {
       if (resp.success) {
         this.cRol = resp.result;
         console.log('role', this.cRol);
+      }
+    });
+    this.service.serviceGeneralGet(`CatRolTrabajo/GetAllReciber`).subscribe(resp => {
+      if (resp.success) {
+        this.cRolReciber = resp.result;
+        console.log('roleReciber', this.cRolReciber);
       }
     });
   }
@@ -929,6 +1001,17 @@ export class CreateBneaComponent implements OnInit {
     });
     console.log('recuersos', this.beneficit);
   }
+  addDocument() {
+    this.documento.push({
+      idBnea: this.idBNEA,
+      id: 0,
+      documento: '',
+      validador: '',
+    });
+    console.log('recuersos', this.documento);
+  }
+
+
   deleteBeneficit(data, index) {
     console.log('index', index);
     console.log('data', data);
@@ -946,8 +1029,54 @@ export class CreateBneaComponent implements OnInit {
         this.beneficit.splice(index, 1);
       }
     }
+  }
 
+  deleteDocumento(data, index) {
+    console.log('index', index);
+    console.log('data', data);
+    if (data.id != 0) {
+      this.service.serviceGeneralDelete(`Bnea/DeleteRecursoPaso13?idBnea=${data.idBnea}&idPaso=${data.id}`).subscribe(resp => {
+        if (resp.success) {
+          console.log('resp paso 13', resp.result);
+          this.getData(this.idBNEA);
+          this.documento = [];
+        }
+      });
+    }
+    else {
+      if (this.documento.length != 1) {
+        this.documento.splice(index, 1);
+      }
+    }
+  }
+  addHito() {
+    this.hito.push({
+      idBnea: this.idBNEA,
+      idPaso: 0,
+      hito: '',
+      fechaInicio: this.today,
+      fechaFin: this.today,
+    });
+    console.log('hito', this.hito);
+  }
 
+  deleteHito(data, index) {
+    console.log('index', index);
+    console.log('data', data);
+    if (data.idPaso != 0) {
+      this.service.serviceGeneralDelete(`Bnea/DeleteRecursoPaso14?idBnea=${data.idBnea}&idPaso=${data.idPaso}`).subscribe(resp => {
+        if (resp.success) {
+          console.log('resp paso 14', resp.result);
+          this.getData(this.idBNEA);
+          this.hito = [];
+        }
+      });
+    }
+    else {
+      if (this.hito.length != 1) {
+        this.hito.splice(index, 1);
+      }
+    }
   }
   addTeam() {
     this.team.push({
@@ -1000,11 +1129,8 @@ export class CreateBneaComponent implements OnInit {
   }
   step4() {
     console.log('form', this.fourFormGroup.value);
-    this.service.serviceGeneralPostWithUrl(`Bnea/Paso4/${this.user.id}?idBnea=${this.idBNEA}&situacion=${this.fourFormGroup.value.situacion}&indicadores=${this.fourFormGroup.value.indicadores}&descripcion=${this.fourFormGroup.value.descripcion}`, '').subscribe(resp => {
+    this.service.serviceGeneralPostWithUrl(`Bnea/Paso4/${this.user.id}?idBnea=${this.idBNEA}&situacion=${this.fourFormGroup.value.situacion}&indicadores=${this.fourFormGroup.value.indicadores}&descripcion=${this.fourFormGroup.value.descripcion}&alcance=${this.fourFormGroup.value.alcance}`, '').subscribe(resp => {
       if (resp.success) {
-        // this.data = resp.result;
-        // console.log('resp paso 4', this.data);
-        // this.getData(this.data.id);
         console.log('resp 4', resp.result);
         this.getData(this.idBNEA);
       }
@@ -1012,11 +1138,8 @@ export class CreateBneaComponent implements OnInit {
   }
   step5() {
     console.log('form', this.fiveFormGroup.value);
-    this.service.serviceGeneralPostWithUrl(`Bnea/Paso5/${this.user.id}?idBnea=${this.idBNEA}&alcance=${this.fiveFormGroup.value.alcance}`, '').subscribe(resp => {
+    this.service.serviceGeneralPostWithUrl(`Bnea/Paso5/${this.user.id}?idBnea=${this.idBNEA}&alcance=${this.fiveFormGroup.value.alcance}&beneficios=${this.fiveFormGroup.value.beneficios}`, '').subscribe(resp => {
       if (resp.success) {
-        // this.data = resp.result;
-        // console.log('resp paso 5', this.data);
-        // this.getData(this.data.id);
         console.log('resp 5', resp.result);
         this.getData(this.idBNEA);
       }
@@ -1255,17 +1378,31 @@ export class CreateBneaComponent implements OnInit {
     });
   }
   step13() {
-    this.step13Data.idBnea = this.idBNEA;
-    this.step13Data.acta = this.thirteenFormGroup.value.acta;
-    this.step13Data.planTrabajo = this.thirteenFormGroup.value.planTrabajo;
-    this.step13Data.reporte = this.thirteenFormGroup.value.reporte;
-    this.step13Data.carta = this.thirteenFormGroup.value.carta;
-    this.step13Data.manual = this.thirteenFormGroup.value.manual;
-    console.log('form', this.thirteenFormGroup.value);
-    this.service.serviceGeneralPostWithUrl(`Bnea/Paso13/${this.user.id}`, this.step13Data).subscribe(resp => {
+    console.log('form', this.documento);
+    this.service.serviceGeneralPostWithUrl(`Bnea/Paso13/${this.user.id}`, this.documento).subscribe(resp => {
       if (resp.success) {
-        // this.data = resp.result;
         console.log('resp paso 13', this.data);
+        this.documento = [];
+        this.getData(this.idBNEA);
+
+        // const dialog2 = this._dialog.open(DialogGeneralMessageComponent, {
+        //   data: {
+        //     header: "Terminaste el BNEA",
+        //     body: 'El BNEA se guardo correctamente',
+        //   },
+        //   width: "350px",
+        // });
+        // this.router.navigateByUrl("User/list-BNEAs");
+      }
+    });
+  }
+  step14() {
+
+    console.log('form', this.hito);
+    this.service.serviceGeneralPostWithUrl(`Bnea/Paso14/${this.user.id}`, this.hito).subscribe(resp => {
+      if (resp.success) {
+        console.log('resp paso 14', this.data);
+        this.hito = [];
         this.getData(this.idBNEA);
 
         const dialog2 = this._dialog.open(DialogGeneralMessageComponent, {
