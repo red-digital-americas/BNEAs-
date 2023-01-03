@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
 import { Router, ActivatedRoute } from '@angular/router';
 import {
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-  MatDialog,
-} from "@angular/material/dialog";
+  MatLegacyDialogRef as MatDialogRef,
+  MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,
+  MatLegacyDialog as MatDialog,
+} from "@angular/material/legacy-dialog";
 import { ServiceGeneralService } from 'app/core/services/service-general.service';
 import { DialogGeneralMessageComponent } from '../dialog-general/dialog-general-message/dialog-general-message.component';
 

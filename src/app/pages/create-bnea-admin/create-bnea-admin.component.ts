@@ -4,10 +4,10 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
 import { ServiceGeneralService } from "app/core/services/service-general.service";
 import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from "@angular/material/dialog";
+  MatLegacyDialog as MatDialog,
+  MatLegacyDialogRef as MatDialogRef,
+  MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,
+} from "@angular/material/legacy-dialog";
 import { DialogGeneralMessageComponent } from 'app/pages/dialog-general/dialog-general-message/dialog-general-message.component';
 import { DatePipe } from '@angular/common';
 

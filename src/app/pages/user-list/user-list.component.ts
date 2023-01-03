@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { MatLegacyDialog as MatDialog, MatLegacyDialogRef as MatDialogRef } from "@angular/material/legacy-dialog";
 import { CreateUserAdminComponent } from '../create-user-admin/create-user-admin.component';
 import { DialogGeneralMessageComponent } from '../dialog-general/dialog-general-message/dialog-general-message.component';
 import { ServiceGeneralService } from 'app/core/services/service-general.service';

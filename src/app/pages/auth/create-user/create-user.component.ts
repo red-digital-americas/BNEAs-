@@ -5,10 +5,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { DialogGeneralMessageComponent } from 'app/pages/dialog-general/dialog-general-message/dialog-general-message.component';
 import {
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-  MatDialog,
-} from "@angular/material/dialog";
+  MatLegacyDialogRef as MatDialogRef,
+  MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,
+  MatLegacyDialog as MatDialog,
+} from "@angular/material/legacy-dialog";
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
