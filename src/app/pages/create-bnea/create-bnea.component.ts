@@ -3,15 +3,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
 import { ServiceGeneralService } from "app/core/services/service-general.service";
-import {
-  MatLegacyDialog as MatDialog,
-  MatLegacyDialogRef as MatDialogRef,
-  MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,
-} from "@angular/material/legacy-dialog";
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { DialogGeneralMessageComponent } from 'app/pages/dialog-general/dialog-general-message/dialog-general-message.component';
 import { DatePipe } from '@angular/common';
-
-
 
 @Component({
   selector: "app-create-bnea",
@@ -21,9 +15,9 @@ import { DatePipe } from '@angular/common';
 })
 export class CreateBneaComponent implements OnInit {
   firstFormGroup = this._formBuilder.group({
-    idTipoBnea: [''],
-    idUser: ['', Validators.required],
-    idBnea: ['', Validators.required],
+    idTipoBnea: [0],
+    idUser: [0, Validators.required],
+    idBnea: [0, Validators.required],
   });
   secondFormGroup = this._formBuilder.group({
     nombreLider: ['', Validators.required],
@@ -44,189 +38,188 @@ export class CreateBneaComponent implements OnInit {
     situacion: ['', Validators.required],
     indicadores: ['', Validators.required],
     descripcion: ['', Validators.required],
-    idEmpresa: ['', Validators.required],
     alcance: ['', Validators.required],
   });
   fiveFormGroup = this._formBuilder.group({
     alcance: ['', Validators.required],
     beneficios: ['', Validators.required],
   });
-  sixFormGroup = this._formBuilder.group(
-    [
+  sixFormGroup = this._formBuilder.group(    
       {
         complete: ['', Validators.required],
       }
-    ]
+
   );
   sevenFormGroup = this._formBuilder.group({
-    desarrollo: [''],
-    desarolloCant: [''],
+    desarrollo: [],
+    desarolloCant: [],
     desarolloEsp: [''],
-    servidor: [''],
-    servidorCant: [''],
+    servidor: [],
+    servidorCant: [],
     servidorEsp: [''],
-    licenciaTer: [''],
-    licenciaTerCant: [''],
+    licenciaTer: [],
+    licenciaTerCant: [],
     licenciaTerEsp: [''],
-    mobiliario: [''],
-    mobiliarioCant: [''],
+    mobiliario: [],
+    mobiliarioCant: [],
     mobiliarioEsp: [''],
-    equipo: [''],
-    equipoCant: [''],
+    equipo: [],
+    equipoCant: [],
     equipoEsp: [''],
-    edificio: [''],
-    edificioCant: [''],
-    edificioEsp: [''],
-    licencia: [''],
-    licenciaCant: [''],
+    edificio: [],
+    edificioCant: [],
+    edificioEsp: [],
+    licencia: [],
+    licenciaCant: [],
     licenciaEsp: [''],
-    terreno: [''],
-    terrenoCant: [''],
+    terreno: [],
+    terrenoCant: [],
     terrenoEsp: [''],
-    silla: [''],
-    sillaCant: [''],
+    silla: [],
+    sillaCant: [],
     sillaEsp: [''],
-    otro: [''],
-    otroCant: [''],
+    otro: [],
+    otroCant: [],
     otroEsp: [''],
   });
   eightFormGroup = this._formBuilder.group({
-    idBnea: [''],
-    desarrolloProv: [''],
-    desarrolloProvP: [''],
-    servidor: [''],
-    servidorP: [''],
-    licenciaTercero: [''],
-    licenciaTerceroP: [''],
-    mobiliario: [''],
-    mobiliarioP: [''],
-    desarrolloSoft: [''],
-    desarrolloSoftP: [''],
-    horas: [''],
-    horasP: [''],
-    equipo: [''],
-    equipoP: [''],
-    edificio: [''],
-    edificioP: [''],
-    licencia: [''],
-    licenciaP: [''],
-    terreno: [''],
-    terrenoP: [''],
-    silla: [''],
-    sillaP: [''],
-    otro: [''],
-    otroP: [''],
+    idBnea: [],
+    desarrolloProv: [],
+    desarrolloProvP: [],
+    servidor: [],
+    servidorP: [],
+    licenciaTercero: [],
+    licenciaTerceroP: [],
+    mobiliario: [],
+    mobiliarioP: [],
+    desarrolloSoft: [],
+    desarrolloSoftP: [],
+    horas: [],
+    horasP: [],
+    equipo: [],
+    equipoP: [],
+    edificio: [],
+    edificioP: [],
+    licencia: [],
+    licenciaP: [],
+    terreno: [],
+    terrenoP: [],
+    silla: [],
+    sillaP: [],
+    otro: [],
+    otroP: [],
   });
   nineFormGroup = this._formBuilder.group({
-    margenComer: [''],
-    margenComerCant: ['', Validators.required],
+    idBnea: [],
+    margenComer: [],
+    margenComerCant: [0, Validators.required],
     margenComerEsp: ['', Validators.required],
-    magenFin: [''],
-    margenFinCant: ['', Validators.required],
+    magenFin: [],
+    margenFinCant: [0, Validators.required],
     margenFinEsp: ['', Validators.required],
-    reduccion: [''],
-    reduccionCant: ['', Validators.required],
+    reduccion: [],
+    reduccionCant: [0, Validators.required],
     reduccionEsp: ['', Validators.required],
-    volumen: [''],
-    volumenCant: ['', Validators.required],
+    volumen: [],
+    volumenCant: [0, Validators.required],
     volumenEsp: ['', Validators.required],
-    ingresos: [''],
-    ingresosCant: ['', Validators.required],
+    ingresos: [],
+    ingresosCant: [0, Validators.required],
     ingresosEsp: ['', Validators.required],
   });
   tenFormGroup = this._formBuilder.group({
-    idBnea: [''],
-    mantEquipos: [''],
-    mantEquiposCant: [''],
+    idBnea: [],
+    mantEquipos: [],
+    mantEquiposCant: [],
     mantEquiposEsp: [''],
-    mantEquiposPor: [''],
-    soporte: [''],
-    soporteCant: [''],
+    mantEquiposPor: [],
+    soporte: [],
+    soporteCant: [],
     soporteEsp: [''],
-    soportePor: [''],
-    plantas: [''],
-    plantasCant: [''],
+    soportePor: [],
+    plantas: [],
+    plantasCant: [],
     plantasEsp: [''],
-    plantasPor: [''],
-    renta: [''],
-    rentaCant: [''],
+    plantasPor: [],
+    renta: [],
+    rentaCant: [],
     rentaEsp: [''],
-    rentaPor: [''],
-    combustible: [''],
-    combustibleCant: [''],
+    rentaPor: [],
+    combustible: [],
+    combustibleCant: [],
     combusitibleEsp: [''],
-    combustiblePor: [''],
-    energia: [''],
-    energiaCant: [''],
+    combustiblePor: [],
+    energia: [],
+    energiaCant: [],
     energiaEsp: [''],
-    energiaPor: [''],
-    suministro: [''],
-    suministroCant: [''],
+    energiaPor: [],
+    suministro: [],
+    suministroCant: [],
     suministroEsp: [''],
-    suministroPor: [''],
-    multa: [''],
-    multaCant: [''],
+    suministroPor: [],
+    multa: [],
+    multaCant: [],
     multaEsp: [''],
-    multaPor: [''],
-    mantComputo: [''],
-    mantComputoCant: [''],
+    multaPor: [],
+    mantComputo: [],
+    mantComputoCant: [],
     mantComputoEsp: [''],
-    mantComputoPor: [''],
-    mantTrans: [''],
-    mantTransCant: [''],
+    mantComputoPor: [],
+    mantTrans: [],
+    mantTransCant: [],
     mantTransEsp: [''],
-    mantTransPor: [''],
-    mantTecno: [''],
-    mantTecnoCant: [''],
+    mantTransPor: [],
+    mantTecno: [],
+    mantTecnoCant: [],
     mantTecnoEsp: [''],
-    mantTecnoPor: [''],
-    licencia: [''],
-    licenciaCant: [''],
+    mantTecnoPor: [],
+    licencia: [],
+    licenciaCant: [],
     licenciaEsp: [''],
-    licenciaPor: [''],
-    soporteSoft: [''],
-    soporteSoftCant: [''],
+    licenciaPor: [],
+    soporteSoft: [],
+    soporteSoftCant: [],
     soporteSoftEsp: [''],
-    soporteSoftPor: [''],
-    consultoria: [''],
-    consultoriaCant: [''],
+    soporteSoftPor: [],
+    consultoria: [],
+    consultoriaCant: [],
     consultoriaEsp: [''],
-    consultoriaPor: [''],
-    incremento: [''],
-    incrementoCant: [''],
+    consultoriaPor: [],
+    incremento: [],
+    incrementoCant: [],
     incrementoEsp: [''],
-    incrementoPor: [''],
-    decremento: [''],
-    decrementoCant: [''],
+    incrementoPor: [],
+    decremento: [],
+    decrementoCant: [],
     decrementoEsp: [''],
-    decrementoPor: [''],
-    utilizacion: [''],
-    utilizacionCant: [''],
+    decrementoPor: [],
+    utilizacion: [],
+    utilizacionCant: [],
     utilizacionEsp: [''],
-    utilizacionPor: [''],
+    utilizacionPor: [],
   });
   elevenFormGroup = this._formBuilder.group({
-    idBnea: [''],
-    recurso: ['', Validators.required],
-    tramiteMensual: ['', Validators.required],
-    tiempoPromedio: ['', Validators.required],
-    tazaError: ['', Validators.required],
-    tiempoCorrecion: ['', Validators.required],
-    transacciones: ['', Validators.required],
-    reducionTiempo: ['', Validators.required],
+    idBnea: [],
+    recurso: [0, Validators.required],
+    tramiteMensual: [0, Validators.required],
+    tiempoPromedio: [0, Validators.required],
+    tazaError: [0, Validators.required],
+    tiempoCorrecion: [0, Validators.required],
+    transacciones: [0, Validators.required],
+    reducionTiempo: [0, Validators.required],
   });
   twenFormGroup = this._formBuilder.group({
-    idBnea: [''],
-    espacioFisico: [''],
-    agua: [''],
-    cfe: [''],
-    internet: [''],
-    flipper: [''],
-    silla: [''],
-    archivero: [''],
-    mampara: [''],
-    computador: [''],
-    servidor: [''],
+    idBnea: [],
+    espacioFisico: [],
+    agua: [],
+    cfe: [],
+    internet: [],
+    flipper: [],
+    silla: [],
+    archivero: [],
+    mampara: [],
+    computador: [],
+    servidor: [],
   });
   thirteenFormGroup = this._formBuilder.group(
     [
@@ -283,6 +276,7 @@ export class CreateBneaComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('userData'));
+
     console.log('user', this.user);
 
     this.idBNEA = this.routerActive.snapshot.paramMap.get('id');
@@ -295,7 +289,7 @@ export class CreateBneaComponent implements OnInit {
     this.getCatRecurso();
     if (this.idBNEA == 0) {
       this.firstFormGroup = this._formBuilder.group({
-        idTipoBnea: ['', Validators.required],
+        idTipoBnea: [0, Validators.required],
         idUser: [this.user.id, Validators.required],
         idBnea: [0, Validators.required],
       });
@@ -599,6 +593,7 @@ export class CreateBneaComponent implements OnInit {
       this.createStep9 = true;
       console.log('crear paso 9');
       this.nineFormGroup = this._formBuilder.group({
+        idBnea: [this.idBNEA],
         margenComer: [false],
         margenComerCant: [0],
         margenComerEsp: [''],
@@ -623,7 +618,7 @@ export class CreateBneaComponent implements OnInit {
         if (resp.success) {
           this.step9Data = resp.result;
           this.nineFormGroup = this._formBuilder.group({
-            idBnea: [this.step9Data.idBnea],
+            idBnea: [this.idBNEA],
             margenComer: [this.step9Data.margenComer],
             margenComerCant: [this.step9Data.margenComerCant],
             margenComerEsp: [this.step9Data.margenComerEsp],
@@ -727,6 +722,7 @@ export class CreateBneaComponent implements OnInit {
         if (resp.success) {
           this.step10Data = resp.result;
           this.tenFormGroup = this._formBuilder.group({
+            idBnea: [this.idBNEA],
             mantEquipos: [this.step10Data.mantEquipos],
             mantEquiposCant: [this.step10Data.mantEquiposCant],
             mantEquiposEsp: [this.step10Data.mantEquiposEsp],
@@ -1424,149 +1420,149 @@ export class CreateBneaComponent implements OnInit {
 
 class Step7Model {
   idBnea: number;
-  desarrollo: boolean;
+  desarrollo: any;
   desarolloCant: number;
   desarolloEsp: string;
-  servidor: boolean;
+  servidor: any;
   servidorCant: number;
   servidorEsp: string;
-  licenciaTer: boolean;
+  licenciaTer: any;
   licenciaTerCant: number;
   licenciaTerEsp: string;
-  mobiliario: boolean;
+  mobiliario: any;
   mobiliarioCant: number;
   mobiliarioEsp: string;
-  equipo: boolean;
+  equipo: any;
   equipoCant: number;
   equipoEsp: string;
-  edificio: boolean;
+  edificio: any;
   edificioCant: number;
   edificioEsp: string;
-  licencia: boolean;
+  licencia: any;
   licenciaCant: number;
   licenciaEsp: string;
-  terreno: boolean;
+  terreno: any;
   terrenoCant: number;
   terrenoEsp: string;
-  silla: boolean;
+  silla: any;
   sillaCant: number;
   sillaEsp: string;
-  otro: boolean;
+  otro: any;
   otroCant: number;
   otroEsp: string;
 }
 class Step8Model {
   idBnea: number;
-  desarrolloProv: boolean;
+  desarrolloProv: any;
   desarrolloProvP: number;
-  servidor: boolean;
+  servidor: any;
   servidorP: number;
-  licenciaTercero: boolean;
+  licenciaTercero: any;
   licenciaTerceroP: number;
-  mobiliario: boolean;
+  mobiliario: any;
   mobiliarioP: number;
-  desarrolloSoft: boolean;
+  desarrolloSoft: any;
   desarrolloSoftP: number;
-  horas: boolean;
+  horas: any;
   horasP: number;
-  equipo: boolean;
+  equipo: any;
   equipoP: number;
-  edificio: boolean;
+  edificio: any;
   edificioP: number;
-  licencia: boolean;
+  licencia: any;
   licenciaP: number;
-  terreno: boolean;
+  terreno: any;
   terrenoP: number;
-  silla: boolean;
+  silla: any;
   sillaP: number;
-  otro: boolean;
+  otro: any;
   otroP: number;
 }
 class Step9Model {
   idBnea: number;
-  margenComer: boolean;
+  margenComer: any;
   margenComerCant: number;
   margenComerEsp: string;
-  magenFin: boolean;
+  magenFin: any;
   margenFinCant: number;
   margenFinEsp: string;
-  reduccion: boolean;
+  reduccion: any;
   reduccionCant: number;
   reduccionEsp: string;
-  volumen: boolean;
+  volumen: any;
   volumenCant: number;
   volumenEsp: string;
-  ingresos: boolean;
+  ingresos: any;
   ingresosCant: number;
   ingresosEsp: string;
 }
 class Step10Model {
   idBnea: number;
-  mantEquipos: boolean;
+  mantEquipos: any;
   mantEquiposCant: number;
   mantEquiposEsp: string;
   mantEquiposPor: number;
-  soporte: boolean;
+  soporte: any;
   soporteCant: number;
   soporteEsp: string;
   soportePor: number;
-  plantas: boolean;
+  plantas: any;
   plantasCant: number;
   plantasEsp: string;
   plantasPor: number;
-  renta: boolean;
+  renta: any;
   rentaCant: number;
   rentaEsp: string;
   rentaPor: number;
-  combustible: boolean;
+  combustible: any;
   combustibleCant: number;
   combusitibleEsp: string;
   combustiblePor: number;
-  energia: boolean;
+  energia: any;
   energiaCant: number;
   energiaEsp: string;
   energiaPor: number;
-  suministro: boolean;
+  suministro: any;
   suministroCant: number;
   suministroEsp: string;
   suministroPor: number;
-  multa: boolean;
+  multa: any;
   multaCant: number;
   multaEsp: string;
   multaPor: number;
-  mantComputo: boolean;
+  mantComputo: any;
   mantComputoCant: number;
   mantComputoEsp: string;
   mantComputoPor: number;
-  mantTrans: boolean;
+  mantTrans: any;
   mantTransCant: number;
   mantTransEsp: string;
   mantTransPor: number;
-  mantTecno: boolean;
+  mantTecno: any;
   mantTecnoCant: number;
   mantTecnoEsp: string;
   mantTecnoPor: number;
-  licencia: boolean;
+  licencia: any;
   licenciaCant: number;
   licenciaEsp: string;
   licenciaPor: number;
-  soporteSoft: boolean;
+  soporteSoft: any;
   soporteSoftCant: number;
   soporteSoftEsp: string;
   soporteSoftPor: number;
-  consultoria: boolean;
+  consultoria: any;
   consultoriaCant: number;
   consultoriaEsp: string;
   consultoriaPor: number;
-  incremento: boolean;
+  incremento: any;
   incrementoCant: number;
   incrementoEsp: string;
   incrementoPor: number;
-  decremento: boolean;
+  decremento: any;
   decrementoCant: number;
   decrementoEsp: string;
   decrementoPor: number;
-  utilizacion: boolean;
+  utilizacion: any;
   utilizacionCant: number;
   utilizacionEsp: string;
   utilizacionPor: number;
@@ -1583,22 +1579,22 @@ class Step11Model {
 }
 class Step12Model {
   idBnea: number;
-  espacioFisico: boolean;
-  agua: boolean;
-  cfe: boolean;
-  internet: boolean;
-  flipper: boolean;
-  silla: boolean;
-  archivero: boolean;
-  mampara: boolean;
-  computador: boolean;
-  servidor: boolean;
+  espacioFisico: any;
+  agua: any;
+  cfe: any;
+  internet: any;
+  flipper: any;
+  silla: any;
+  archivero: any;
+  mampara: any;
+  computador: any;
+  servidor: any;
 }
 class Step13Model {
   idBnea: number;
-  acta: boolean;
-  planTrabajo: boolean;
-  reporte: boolean;
-  carta: boolean;
-  manual: boolean;
+  acta: any;
+  planTrabajo: any;
+  reporte: any;
+  carta: any;
+  manual: any;
 }
